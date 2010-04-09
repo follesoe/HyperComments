@@ -1,5 +1,7 @@
 _ReSharper.HyperComments
-*.ReSharper.user
+TestResults
 bin
 obj
 *.suo
+*.trx
+*.ReSharper.user

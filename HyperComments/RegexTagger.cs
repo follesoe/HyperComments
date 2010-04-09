@@ -13,6 +13,7 @@ namespace HyperComments
     {
         public event EventHandler<SnapshotSpanEventArgs> TagsChanged;
 
+        private readonly Dictionary<SnapshotSpan, TagSpan<T>> _cache;
         private readonly IClassifier _classifier;
         private readonly Regex _regex;
 
@@ -20,6 +21,7 @@ namespace HyperComments
         {
             _classifier = classifier; 
             _regex = new Regex(regex, RegexOptions.IgnoreCase);
+            _cache = new Dictionary<SnapshotSpan, TagSpan<T>>();
         }
 
         public abstract T CreateTag(Match regexMatch, SnapshotSpan span);
@@ -33,10 +35,20 @@ namespace HyperComments
                     var match = _regex.Match(classification.Span.GetText());
                     if(!match.Success) continue;
 
-                    var snapshotSpan = classification.Span;
+                    if(_cache.ContainsKey(classification.Span))
+                    {
+                        yield return _cache[classification.Span];
+                    }
+                    else
+                    {
+                        int length = match.Value.Length;
+                        int index = classification.Span.GetText().IndexOf(match.Value);
+                        var snapshotSpan = new SnapshotSpan(classification.Span.Start + index, length);
 
-                    var tag = new TagSpan<T>(snapshotSpan, CreateTag(match, snapshotSpan));
-                    yield return tag;
+                        var tag = new TagSpan<T>(snapshotSpan, CreateTag(match, snapshotSpan));
+                        _cache.Add(classification.Span, tag);
+                        yield return tag;   
+                    }
                 }
             }
         }        
