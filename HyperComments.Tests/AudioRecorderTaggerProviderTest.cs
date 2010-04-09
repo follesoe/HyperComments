@@ -8,28 +8,28 @@ using Microsoft.VisualStudio.Text.Classification;
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using HyperComments.Player;
+using HyperComments.Recorder;
 
 namespace HyperComments.Tests
 {
     [TestClass]
-    public class AudioPlayerTaggerProviderTest
+    public class AudioRecorderTaggerProviderTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Throws_exception_if_buffer_is_null()
         {
-            provider.CreateTagger<AudioPlayerTag>(null);
+            provider.CreateTagger<AudioRecorderTag>(null);
         }
 
         [TestMethod]
-        public void Creates_the_AudioPlayerTagger()
+        public void Creates_the_AudioRecorderTagger()
         {
             var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<AudioPlayerTag>(buffer);
+            var tagger = provider.CreateTagger<AudioRecorderTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(AudioPlayerTagger));
+            Assert.IsInstanceOfType(tagger, typeof(AudioRecorderTagger));
         }
 
         [TestInitialize]
@@ -41,7 +41,7 @@ namespace HyperComments.Tests
 
             AggregatorService = aggregatorService.Object;
 
-            provider = new AudioPlayerTaggerProvider();                                 
+            provider = new AudioRecorderTaggerProvider();
 
             var batch = new CompositionBatch();
             batch.AddPart(this);
@@ -55,6 +55,6 @@ namespace HyperComments.Tests
         [Export]
         public IClassifierAggregatorService AggregatorService;
 
-        private AudioPlayerTaggerProvider provider;
+        private AudioRecorderTaggerProvider provider;
     }
 }

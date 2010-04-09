@@ -67,6 +67,7 @@
     <Compile Include="Recorder\AudioRecorderTag.cs" />
     <Compile Include="Recorder\AudioRecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recorder\AudioRecorderTaggerProvider.cs" />
     <Compile Include="RegexTagger.cs" />
   </ItemGroup>
   <ItemGroup>

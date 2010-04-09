@@ -6,7 +6,7 @@ namespace HyperComments.Recorder
 {
     public class AudioRecorderTagger : RegexTagger<AudioRecorderTag>
     {
-        public AudioRecorderTagger(IClassifier classifier, string regex) : base(classifier, regex)
+        public AudioRecorderTagger(IClassifier classifier) : base(classifier, "// {recorder}")
         {
         }
 

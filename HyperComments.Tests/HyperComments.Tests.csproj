@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AudioPlayerTaggerProviderTest.cs" />
     <Compile Include="AudioPlayerTaggerTest.cs" />
+    <Compile Include="AudioRecorderTaggerProviderTest.cs" />
     <Compile Include="AudioRecorderTaggerTest.cs" />
     <Compile Include="BDD.cs" />
     <Compile Include="Builders\ClassificationSpanBuilder.cs" />

@@ -20,10 +20,8 @@ namespace HyperComments.Tests
         [TestInitialize]
         public void Setup()
         {
-            tagger = new AudioRecorderTagger(classifier.Object, Regex);
+            tagger = new AudioRecorderTagger(classifier.Object);
         }
-
-        private const string Regex = "// {recorder}";
 
         private void we_have_one_span_matching_audio_comment()
         {
