@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="3dacae59-14f9-45bb-aa8d-db265c36e8de" name="Jonas Follesø@WIN7IMACVHD 2010-04-09 22:46:21" runUser="Win7iMacVHD\Jonas Follesø" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="54ecef25-06ea-4ac9-aedf-b4d06acd069c">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Jonas Follesø_WIN7IMACVHD 2010-04-09 22_46_21" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2010-04-09T22:46:21.9100659+02:00" queuing="2010-04-09T22:46:22.1030770+02:00" start="2010-04-09T22:46:22.1420792+02:00" finish="2010-04-09T22:46:22.8511198+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Creates_tag_if_matching_text_is_found" storage="c:\source\hypercomments\hypercomments.tests\bin\debug\hypercomments.tests.dll" id="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c">
+      <Execution id="2d61f6d1-5f60-4ac2-ab09-411ef76fb46b" />
+      <TestMethod codeBase="C:/source/HyperComments/HyperComments.Tests/bin/Debug/HyperComments.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="HyperComments.Tests.RegexTaggerTest, HyperComments.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Creates_tag_if_matching_text_is_found" />
+    </UnitTest>
+    <UnitTest name="Creates_no_tags_if_no_spans_to_check" storage="c:\source\hypercomments\hypercomments.tests\bin\debug\hypercomments.tests.dll" id="8d4663f6-37bd-eec4-0bfa-ba9005ac4f4e">
+      <Execution id="45822cec-e2ab-49ea-b882-c6671ecda199" />
+      <TestMethod codeBase="C:/source/HyperComments/HyperComments.Tests/bin/Debug/HyperComments.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="HyperComments.Tests.RegexTaggerTest, HyperComments.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Creates_no_tags_if_no_spans_to_check" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8d4663f6-37bd-eec4-0bfa-ba9005ac4f4e" executionId="45822cec-e2ab-49ea-b882-c6671ecda199" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c" executionId="2d61f6d1-5f60-4ac2-ab09-411ef76fb46b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="45822cec-e2ab-49ea-b882-c6671ecda199" testId="8d4663f6-37bd-eec4-0bfa-ba9005ac4f4e" testName="Creates_no_tags_if_no_spans_to_check" computerName="WIN7IMACVHD" duration="00:00:00.1375145" startTime="2010-04-09T22:46:22.1500797+02:00" endTime="2010-04-09T22:46:22.5571029+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45822cec-e2ab-49ea-b882-c6671ecda199">
+    </UnitTestResult>
+    <UnitTestResult executionId="2d61f6d1-5f60-4ac2-ab09-411ef76fb46b" testId="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c" testName="Creates_tag_if_matching_text_is_found" computerName="WIN7IMACVHD" duration="00:00:00.2686623" startTime="2010-04-09T22:46:22.5581030+02:00" endTime="2010-04-09T22:46:22.8321187+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2d61f6d1-5f60-4ac2-ab09-411ef76fb46b">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method HyperComments.Tests.RegexTaggerTest.Creates_tag_if_matching_text_is_found threw exception: 
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---&gt; System.IndexOutOfRangeException: Index was outside the bounds of the array.</Message>
+          <StackTrace>    at Moq.MethodCall..ctor(Mock mock, Expression originalExpression, MethodInfo method, Expression[] arguments)
+   at Moq.MethodCallReturn`2..ctor(Mock mock, Expression originalExpression, MethodInfo method, Expression[] arguments)
+   at Moq.Mock.&lt;&gt;c__DisplayClass15`2.&lt;SetupGet&gt;b__14()
+   at Moq.PexProtector.Invoke[T](Func`1 function)
+   at Moq.Mock.SetupGet[T1,TProperty](Mock mock, Expression`1 expression)
+   at Moq.Mock`1.SetupGet[TProperty](Expression`1 expression)
+ --- End of inner exception stack trace ---
+    at System.RuntimeMethodHandle._InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, SignatureStruct&amp; sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.RuntimeMethodHandle.InvokeMethodFast(IRuntimeMethodInfo method, Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeType typeOwner)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Moq.Mock.&lt;&gt;c__DisplayClass26.&lt;SetupAllProperties&gt;b__23()
+   at Moq.PexProtector.Invoke(Action action)
+   at Moq.Mock.SetupAllProperties(Mock mock)
+   at Moq.Mock`1.SetupAllProperties()
+   at HyperComments.Tests.RegexTaggerTest.we_got_one_span_matching_search_expression() in C:\source\HyperComments\HyperComments.Tests\RegexTaggerTest.cs:line 45
+   at HyperComments.Tests.RegexTaggerTest.Creates_tag_if_matching_text_is_found() in C:\source\HyperComments\HyperComments.Tests\RegexTaggerTest.cs:line 28
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

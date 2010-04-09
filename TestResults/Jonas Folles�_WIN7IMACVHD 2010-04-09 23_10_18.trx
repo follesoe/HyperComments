@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="853b11a7-2a5f-4ec4-afaf-0855377833d4" name="Jonas Follesø@WIN7IMACVHD 2010-04-09 23:10:18" runUser="Win7iMacVHD\Jonas Follesø" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="54ecef25-06ea-4ac9-aedf-b4d06acd069c">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\source\HyperComments\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Jonas Follesø_WIN7IMACVHD 2010-04-09 23_10_18" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2010-04-09T23:10:18.2382192+02:00" queuing="2010-04-09T23:10:19.6432996+02:00" start="2010-04-09T23:10:19.7173038+02:00" finish="2010-04-09T23:10:44.7447353+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WIN7IMACVHD" outcome="Error" timestamp="2010-04-09T23:10:44.7447353+02:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Creates_tag_if_matching_text_is_found" storage="c:\source\hypercomments\hypercomments.tests\bin\debug\hypercomments.tests.dll" id="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c">
+      <Execution id="0c5fdc3d-02ae-42bb-85df-31cd1d4a08fd" />
+      <TestMethod codeBase="C:/source/HyperComments/HyperComments.Tests/bin/Debug/HyperComments.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="HyperComments.Tests.RegexTaggerTest, HyperComments.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Creates_tag_if_matching_text_is_found" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c" executionId="0c5fdc3d-02ae-42bb-85df-31cd1d4a08fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0c5fdc3d-02ae-42bb-85df-31cd1d4a08fd" testId="8f3f3d95-cb92-bb93-c941-e4e3dad72c1c" testName="Creates_tag_if_matching_text_is_found" computerName="WIN7IMACVHD" duration="00:00:24.9844290" startTime="2010-04-09T23:10:19.7603063+02:00" endTime="2010-04-09T23:10:44.7447353+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c5fdc3d-02ae-42bb-85df-31cd1d4a08fd">
+    </UnitTestResult>
+  </Results>
+</TestRun>
