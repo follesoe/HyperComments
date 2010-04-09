@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="AudioPlayerTag.cs" />
     <Compile Include="AudioPlayerTagger.cs" />
+    <Compile Include="AudioRecorderTag.cs" />
+    <Compile Include="AudioRecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegexTagger.cs" />
   </ItemGroup>

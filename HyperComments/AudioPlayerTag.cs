@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using Microsoft.VisualStudio.Text.Editor;
-using Microsoft.VisualStudio.Text.Tagging;
 
 namespace HyperComments
 {

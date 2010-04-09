@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HyperComments.Tests.Builders;
-using HyperComments.Tests.Stubs;
-
-using Microsoft.VisualStudio.Text;
-using Microsoft.VisualStudio.Text.Classification;
-using Microsoft.VisualStudio.Text.Tagging;
-
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace HyperComments.Tests
 {
     [TestClass]
-    public class AudioPlayerTaggerTest : BDD<AudioPlayerTaggerTest>
+    public class AudioPlayerTaggerTest : TaggerTest<AudioPlayerTaggerTest, AudioPlayerTag>
     {
         [TestMethod]
         public void Creates_tag_if_audio_file_comment_is_found()
@@ -37,36 +26,13 @@ namespace HyperComments.Tests
 
         [TestInitialize]
         public void Setup()
-        {
-            spans = new NormalizedSnapshotSpanCollection();
-            classificationSpans = new List<ClassificationSpan>();            
-
-            classifier = new Mock<IClassifier>();
-            classifier.Setup(c => c.GetClassificationSpans(It.IsAny<SnapshotSpan>())).Returns(classificationSpans);
-
+        {         
             tagger = new AudioPlayerTagger(classifier.Object);
-        }
-
-        private void we_get_the_tags()
-        {
-            tags = tagger.GetTags(spans);
         }
 
         private void we_have_one_span_matching_audio_comment()
         {
             create_spans(@"// {audio: c:\comment.mp3}");
         }
-
-        private void create_spans(params string[] lines)
-        {
-            classificationSpans.AddRange(ClassificationSpanBuilder.FromStrings(lines));
-            spans = new NormalizedSnapshotSpanCollection(classificationSpans.Select(c => c.Span).First());
-        }
-
-        private AudioPlayerTagger tagger;
-        private NormalizedSnapshotSpanCollection spans;
-        private Mock<IClassifier> classifier;
-        private IEnumerable<ITagSpan<AudioPlayerTag>> tags;
-        private List<ClassificationSpan> classificationSpans;
     }
 }

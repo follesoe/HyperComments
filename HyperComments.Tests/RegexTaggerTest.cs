@@ -14,7 +14,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HyperComments.Tests
 {
     [TestClass]
-    public class RegexTaggerTest : BDD<RegexTaggerTest>
+    public class RegexTaggerTest : TaggerTest<RegexTaggerTest, TestTag>
     {
         [TestMethod]
         public void Creates_no_tags_if_no_spans_to_check()
@@ -67,15 +67,11 @@ namespace HyperComments.Tests
 
         [TestInitialize]
         public void Setup()
-        {
-            spans = new NormalizedSnapshotSpanCollection();
-            classificationSpans = new List<ClassificationSpan>();            
-            
-            classifier = new Mock<IClassifier>();
-            classifier.Setup(c => c.GetClassificationSpans(It.IsAny<SnapshotSpan>())).Returns(classificationSpans);
-
+        {                    
             tagger = new TestTagger(classifier.Object, Regex);
         }
+
+        private const string Regex = "test";
 
         private void we_have_one_span_matching_search_expression()
         {
@@ -86,23 +82,5 @@ namespace HyperComments.Tests
         {
             create_spans("this is a test", "this is also a test");
         }
-
-        private void we_get_the_tags()
-        {
-            tags = tagger.GetTags(spans);
-        }
-
-        private void create_spans(params string[] lines)
-        {
-            classificationSpans.AddRange(ClassificationSpanBuilder.FromStrings(lines));
-            spans = new NormalizedSnapshotSpanCollection(classificationSpans.Select(c => c.Span).First()); 
-        }
-
-        private const string Regex = "test";
-        private TestTagger tagger;
-        private NormalizedSnapshotSpanCollection spans;
-        private Mock<IClassifier> classifier;
-        private IEnumerable<ITagSpan<TestTag>> tags;
-        private List<ClassificationSpan> classificationSpans;
     }
 }
