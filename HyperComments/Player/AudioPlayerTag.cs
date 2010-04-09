@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.VisualStudio.Text.Editor;
 
-namespace HyperComments
+namespace HyperComments.Player
 {
     public class AudioPlayerTag : IntraTextAdornmentTag
     {

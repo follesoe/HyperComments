@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
 
-namespace HyperComments
+namespace HyperComments.Player
 {
     public class AudioPlayerTagger : RegexTagger<AudioPlayerTag>
     {

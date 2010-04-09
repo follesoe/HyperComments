@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
 
-namespace HyperComments
+namespace HyperComments.Recorder
 {
     public class AudioRecorderTagger : RegexTagger<AudioRecorderTag>
     {

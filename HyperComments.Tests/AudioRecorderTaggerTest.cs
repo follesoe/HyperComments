@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using HyperComments.Recorder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HyperComments.Tests

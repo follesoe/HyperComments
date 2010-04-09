@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.VisualStudio.Text.Editor;
 
-namespace HyperComments
+namespace HyperComments.Recorder
 {
     public class AudioRecorderTag : IntraTextAdornmentTag
     {

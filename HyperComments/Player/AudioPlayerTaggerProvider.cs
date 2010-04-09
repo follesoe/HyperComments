@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.Text.Classification;
 
 using Microsoft.VisualStudio.Utilities;
 
-namespace HyperComments
+namespace HyperComments.Player
 {
     [Export(typeof(ITaggerProvider))]
     [ContentType("code")]
