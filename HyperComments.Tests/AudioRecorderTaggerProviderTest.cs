@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-
+using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
 
@@ -40,6 +40,7 @@ namespace HyperComments.Tests
                              .Returns(new Mock<IClassifier>().Object);
 
             AggregatorService = aggregatorService.Object;
+            ServiceProvider = new Mock<SVsServiceProvider>().Object;
 
             provider = new AudioRecorderTaggerProvider();
 
@@ -54,6 +55,9 @@ namespace HyperComments.Tests
 
         [Export]
         public IClassifierAggregatorService AggregatorService;
+
+        [Export]
+        public SVsServiceProvider ServiceProvider;
 
         private AudioRecorderTaggerProvider provider;
     }
