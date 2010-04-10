@@ -101,9 +101,6 @@
 				</VisualStateGroup.Transitions>
 				<VisualState x:Name="Collapsed">
 					<Storyboard>
-						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_positionSlider">
-							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
-						</ObjectAnimationUsingKeyFrames>
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_audioTitle">
 							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
 						</ObjectAnimationUsingKeyFrames>
@@ -113,10 +110,10 @@
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBackground">
 							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
 						</ObjectAnimationUsingKeyFrames>
-						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="background">
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="_background">
 							<EasingDoubleKeyFrame KeyTime="0" Value="0.099"/>
 						</DoubleAnimationUsingKeyFrames>
-						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="background">
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="_background">
 							<EasingDoubleKeyFrame KeyTime="0" Value="-149.61"/>
 						</DoubleAnimationUsingKeyFrames>
 						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="_playPause">
@@ -129,9 +126,6 @@
 				</VisualState>
 				<VisualState x:Name="Expanded">
 					<Storyboard>
-						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_positionSlider">
-							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
-						</ObjectAnimationUsingKeyFrames>
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="volumeIcon">
 							<DiscreteObjectKeyFrame KeyTime="0">
 								<DiscreteObjectKeyFrame.Value>
@@ -145,11 +139,33 @@
 					</Storyboard>
 				</VisualState>
 			</VisualStateGroup>
+			<VisualStateGroup x:Name="SliderStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
+				<VisualStateGroup.Transitions>
+					<VisualTransition GeneratedDuration="0:0:0.2"/>
+				</VisualStateGroup.Transitions>
+				<VisualState x:Name="Visible">
+					<Storyboard>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_audioTitle">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0.15"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_positionLabel">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0.15"/>
+						</DoubleAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="Hidden">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_positionSlider">
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
 		</VisualStateManager.VisualStateGroups>
 		<VisualStateManager.CustomVisualStateManager>
 			<ei:ExtendedVisualStateManager/>
 		</VisualStateManager.CustomVisualStateManager>
-		<Rectangle x:Name="background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" Width="332" Height="18" Canvas.Left="4" RenderTransformOrigin="0.5,0.5" Canvas.Top="0">
+		<Rectangle x:Name="_background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" Width="332" Height="18" Canvas.Left="4" RenderTransformOrigin="0.5,0.5" Canvas.Top="0">
 			<Rectangle.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>
