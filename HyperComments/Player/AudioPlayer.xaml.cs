@@ -1,10 +1,9 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace HyperComments.Player
 {
-	public partial class AudioPlayer : UserControl
+	public partial class AudioPlayer
 	{
 	    private const string HiddenState = "Hidden";
 	    private const string VisibleState = "Visible";
