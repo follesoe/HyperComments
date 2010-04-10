@@ -14,6 +14,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20310.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,6 +41,7 @@
     <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.VisualStudio.CoreUtility">
       <Private>False</Private>
     </Reference>
@@ -63,12 +66,16 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioDirectory.cs" />
+    <Compile Include="Player\AudioPlayer.xaml.cs">
+      <DependentUpon>AudioPlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Player\AudioPlayerTag.cs" />
     <Compile Include="Player\AudioPlayerTagger.cs" />
     <Compile Include="Player\AudioPlayerTaggerProvider.cs" />
@@ -83,7 +90,20 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="DefaultTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Player\AudioPlayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

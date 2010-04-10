@@ -4,5 +4,12 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="/HyperComments;component/DefaultTheme.xaml"/>
+    			<ResourceDictionary Source="/HyperComments;component/Simple Styles.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+    	</ResourceDictionary>
+         
     </Application.Resources>
 </Application>

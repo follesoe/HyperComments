@@ -1,8 +1,11 @@
-﻿<Window x:Class="HyperComments.UITestSurface.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:HyperComments="clr-namespace:HyperComments;assembly=HyperComments" xmlns:Player="clr-namespace:HyperComments.Player;assembly=HyperComments" x:Class="HyperComments.UITestSurface.MainWindow"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        
+    	<Player:AudioPlayer Margin="75,111,84,0" VerticalAlignment="Top" Width="350" Height="18"/>
         
     </Grid>
 </Window>
