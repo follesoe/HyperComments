@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using HyperComments.Player;
 
 using Moq;
@@ -13,6 +15,12 @@ namespace HyperComments.Tests.Player
         public void Has_default_display_message()
         {
             Assert.AreEqual("Filename not set...", viewModel.Message);
+        }
+
+        [TestMethod]
+        public void Has_default_time_position()
+        {
+            Assert.AreEqual("00:00:00", viewModel.CurrentPosition);
         }
 
         [TestMethod]
@@ -44,10 +52,19 @@ namespace HyperComments.Tests.Player
         public void Fires_change_notification_for_both_message_and_filename()
         {
             viewModel.Filename = "comment.mp3";
-            Assert.AreEqual("Filename", properties.Dequeue());
-            Assert.AreEqual("Message", properties.Dequeue());
+            Assert.AreEqual("Filename", notifications.Dequeue());
+            Assert.AreEqual("Message", notifications.Dequeue());
         }
 
+        [TestMethod]
+        public void Fires_change_notification_for_slider_max_value_when_duration_is_set()
+        {
+            viewModel.Duration = new Duration(new TimeSpan(0, 0, 0, 60));
+            Assert.AreEqual("Duration", notifications.Dequeue());
+            Assert.AreEqual("ScrubberMaxValue", notifications.Dequeue());
+            Assert.AreEqual(60*1000, viewModel.ScrubberMaxValue);
+        }
+        
         [TestInitialize]
         public void Setup()
         {
@@ -55,14 +72,14 @@ namespace HyperComments.Tests.Player
             fileAccess.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
 
             viewModel = new AudioPlayerViewModel();
-            viewModel.PropertyChanged += (o, e) => properties.Enqueue(e.PropertyName);
+            viewModel.PropertyChanged += (o, e) => notifications.Enqueue(e.PropertyName);
             viewModel.FileAccess = fileAccess.Object;
 
-            properties = new Queue<string>();
+            notifications = new Queue<string>();
         }
 
         private Mock<IAccessFiles> fileAccess;
         private AudioPlayerViewModel viewModel;
-        private Queue<string> properties;
+        private Queue<string> notifications;
     }
 }

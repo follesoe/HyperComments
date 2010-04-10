@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Windows;
 
 namespace HyperComments.Player
 {
@@ -35,6 +36,29 @@ namespace HyperComments.Player
 
                 return string.Format("File {0} does not exist...", _filename);
             }
+        }
+
+        public string CurrentPosition
+        {
+            get { return "00:00:00"; }
+        }
+
+        private Duration _duration;
+        
+        public Duration Duration
+        {
+            get { return _duration; }
+            set
+            {
+                _duration = value;
+                OnPropertyChanged("Duration");
+                OnPropertyChanged("ScrubberMaxValue");
+            }
+        }
+
+        public double ScrubberMaxValue
+        {
+            get { return Duration.TimeSpan.TotalMilliseconds; }
         }
         
         public AudioPlayerViewModel()

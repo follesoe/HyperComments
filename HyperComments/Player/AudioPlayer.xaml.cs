@@ -40,11 +40,13 @@ namespace HyperComments.Player
         {
             if(VisualStateGroup.CurrentState.Name == CollapsedState)
             {
+                _mediaElement.Play();
                 VisualStateManager.GoToState(this, ExpandedState, true);
                 VisualStateManager.GoToState(_playPause, PauseState, true);
             }
             else
             {
+                _mediaElement.Pause();             
                 VisualStateManager.GoToState(this, CollapsedState, true);
                 VisualStateManager.GoToState(this, HiddenState, true);
                 VisualStateManager.GoToState(_playPause, PlayState, true);

@@ -170,6 +170,10 @@
 		<VisualStateManager.CustomVisualStateManager>
 			<ei:ExtendedVisualStateManager/>
 		</VisualStateManager.CustomVisualStateManager>
+        <MediaElement x:Name="_mediaElement" 
+                      LoadedBehavior="Manual"
+                      UnloadedBehavior="Stop"
+                      Source="{Binding Path=Filename}" />
 		<Rectangle x:Name="_background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" Width="332" Height="18" Canvas.Left="4" RenderTransformOrigin="0.5,0.5" Canvas.Top="0">
 			<Rectangle.RenderTransform>
 				<TransformGroup>
