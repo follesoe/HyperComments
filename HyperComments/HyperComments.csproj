@@ -73,12 +73,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioDirectory.cs" />
+    <Compile Include="BaseViewModel.cs" />
     <Compile Include="Player\AudioPlayer.xaml.cs">
       <DependentUpon>AudioPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player\AudioPlayerTag.cs" />
     <Compile Include="Player\AudioPlayerTagger.cs" />
     <Compile Include="Player\AudioPlayerTaggerProvider.cs" />
+    <Compile Include="Player\AudioPlayerViewModel.cs" />
     <Compile Include="Recorder\AudioRecorderTag.cs" />
     <Compile Include="Recorder\AudioRecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

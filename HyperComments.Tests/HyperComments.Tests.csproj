@@ -71,6 +71,7 @@
     <Compile Include="Player\AudioPlayerTaggerProviderTest.cs" />
     <Compile Include="Player\AudioPlayerTaggerTest.cs" />
     <Compile Include="Player\AudioPlayerTagTest.cs" />
+    <Compile Include="Player\AudioPlayerViewModelTest.cs" />
     <Compile Include="Recorder\AudioRecorderTaggerProviderTest.cs" />
     <Compile Include="Recorder\AudioRecorderTaggerTest.cs" />
     <Compile Include="BDD.cs" />

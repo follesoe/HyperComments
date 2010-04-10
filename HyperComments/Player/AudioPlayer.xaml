@@ -3,12 +3,17 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:System="clr-namespace:System;assembly=mscorlib"
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+    xmlns:local="clr-namespace:HyperComments.Player"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
 	mc:Ignorable="d"
 	x:Class="HyperComments.Player.AudioPlayer"
 	x:Name="UserControl"
 	UseLayoutRounding="True"
 	d:DesignWidth="640" d:DesignHeight="480" Width="350" Height="18">
+    <UserControl.DataContext>
+        <local:AudioPlayerViewModel />
+    </UserControl.DataContext>
 	<UserControl.Resources>
 		<ControlTemplate x:Key="PlayButtonTemplate" TargetType="{x:Type Button}">
 			<Canvas Height="18" Margin="0">

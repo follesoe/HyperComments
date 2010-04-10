@@ -12,7 +12,18 @@ namespace HyperComments.Player
 	    private const string PlayState = "Play";
 	    private const string PauseState = "Pause";
 
-		public AudioPlayer()
+	    public string Filename
+	    {
+            get { return ViewModel.Filename; }
+            set { ViewModel.Filename = value; }
+	    }
+
+	    public AudioPlayerViewModel ViewModel
+	    {
+	        get { return (AudioPlayerViewModel) DataContext; }
+	    }
+             
+	    public AudioPlayer()
 		{
 			InitializeComponent();
 
