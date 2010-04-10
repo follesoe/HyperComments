@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Text.Editor;
+﻿using System.Windows;
+using Microsoft.VisualStudio.Text.Editor;
 
 namespace HyperComments.Player
 {
@@ -14,6 +15,7 @@ namespace HyperComments.Player
         public AudioPlayerTag(string filename) : base(new AudioPlayer(), null)
         {
             Player.Filename = filename;
+            Player.RenderSize = new Size(350, 18);
         }
     }
 }
