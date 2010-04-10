@@ -3,19 +3,23 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
     xmlns:local="clr-namespace:HyperComments.Player"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
 	mc:Ignorable="d"
 	x:Class="HyperComments.Player.AudioPlayer"
 	x:Name="UserControl"
 	UseLayoutRounding="True"
-	d:DesignWidth="640" d:DesignHeight="480" Width="350" Height="18">
+	Width="350" Height="18">
     <UserControl.DataContext>
         <local:AudioPlayerViewModel />
     </UserControl.DataContext>
 	<UserControl.Resources>
-		<ControlTemplate x:Key="PlayButtonTemplate" TargetType="{x:Type Button}">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Simple Styles.xaml"/>
+                <ResourceDictionary Source="..\DefaultTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>                    
+		    <ControlTemplate x:Key="PlayButtonTemplate" TargetType="{x:Type Button}">
 			<Canvas Height="18" Margin="0">
 				<VisualStateManager.VisualStateGroups>
 					<VisualStateGroup x:Name="CommonStates">
@@ -92,11 +96,12 @@
 				<Rectangle x:Name="pause2" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="11" Canvas.Left="15" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0"/>
 			</Canvas>
 		</ControlTemplate>
-	</UserControl.Resources>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
 	<Canvas x:Name="LayoutRoot">
 		<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup x:Name="VisualStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
+			<VisualStateGroup x:Name="VisualStateGroup">
 				<VisualStateGroup.Transitions>
 					<VisualTransition GeneratedDuration="0:0:0.2">
 						<VisualTransition.GeneratedEasingFunction>
@@ -171,9 +176,6 @@
 				</VisualState>
 			</VisualStateGroup>
 		</VisualStateManager.VisualStateGroups>
-		<VisualStateManager.CustomVisualStateManager>
-			<ei:ExtendedVisualStateManager/>
-		</VisualStateManager.CustomVisualStateManager>
 		<Rectangle x:Name="_background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" Width="332" Height="18" Canvas.Left="4" RenderTransformOrigin="0.5,0.5" Canvas.Top="0">
 			<Rectangle.RenderTransform>
 				<TransformGroup>
