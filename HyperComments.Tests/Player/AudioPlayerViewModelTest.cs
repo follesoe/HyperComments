@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using HyperComments.Player;
+
+using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HyperComments.Tests.Player
@@ -31,6 +30,17 @@ namespace HyperComments.Tests.Player
         }
 
         [TestMethod]
+        public void Displays_message_if_file_does_not_exist()
+        {
+            fileAccess = new Mock<IAccessFiles>();
+            fileAccess.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+            viewModel.FileAccess = fileAccess.Object;
+
+            viewModel.Filename = "comment.mp3";
+            Assert.AreEqual("File comment.mp3 does not exist...", viewModel.Message);
+        }
+
+        [TestMethod]
         public void Fires_change_notification_for_both_message_and_filename()
         {
             viewModel.Filename = "comment.mp3";
@@ -41,11 +51,17 @@ namespace HyperComments.Tests.Player
         [TestInitialize]
         public void Setup()
         {
+            fileAccess = new Mock<IAccessFiles>();
+            fileAccess.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+
             viewModel = new AudioPlayerViewModel();
             viewModel.PropertyChanged += (o, e) => properties.Enqueue(e.PropertyName);
+            viewModel.FileAccess = fileAccess.Object;
+
             properties = new Queue<string>();
         }
 
+        private Mock<IAccessFiles> fileAccess;
         private AudioPlayerViewModel viewModel;
         private Queue<string> properties;
     }

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 
 namespace HyperComments.Player
 {
     public class AudioPlayerViewModel : BaseViewModel
     {
+        public IAccessFiles FileAccess { get; set; }
+
         private string _filename;     
    
         public string Filename
@@ -29,13 +27,19 @@ namespace HyperComments.Player
                 {
                     return "Filename not set...";
                 }
-                return Path.GetFileName(_filename);
+
+                if(FileAccess.Exists(_filename))
+                {
+                    return Path.GetFileName(_filename);
+                }
+
+                return string.Format("File {0} does not exist...", _filename);
             }
         }
         
         public AudioPlayerViewModel()
         {
-            
+            FileAccess = new FileSystemAdapter();    
         }
     }
 }

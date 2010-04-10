@@ -74,6 +74,8 @@
   <ItemGroup>
     <Compile Include="AudioDirectory.cs" />
     <Compile Include="BaseViewModel.cs" />
+    <Compile Include="FileSystemAdapter.cs" />
+    <Compile Include="IAccessFiles.cs" />
     <Compile Include="Player\AudioPlayer.xaml.cs">
       <DependentUpon>AudioPlayer.xaml</DependentUpon>
     </Compile>

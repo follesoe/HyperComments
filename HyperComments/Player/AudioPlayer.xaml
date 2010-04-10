@@ -202,7 +202,7 @@
 			</Path.RenderTransform>
 		</Path>
 		<Rectangle x:Name="textBackground" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="14" Canvas.Left="31" Canvas.Top="2" Width="292" IsHitTestVisible="False"/>
-		<TextBlock x:Name="_audioTitle" Height="13" Canvas.Left="36" Text="jonas follesø.mp3" Width="231" TextTrimming="CharacterEllipsis" Canvas.Top="3" FontFamily="Courier New" FontSize="10.667" IsHitTestVisible="False"/>
+		<TextBlock x:Name="_audioTitle" Height="13" Canvas.Left="36" Text="{Binding Message, Mode=OneWay}" Width="231" TextTrimming="CharacterEllipsis" Canvas.Top="3" FontFamily="Courier New" FontSize="10.667" IsHitTestVisible="False"/>
 		<TextBlock x:Name="_positionLabel" Height="13" Canvas.Left="254" Text="00:00" Width="66" FontSize="10.667" Canvas.Top="3" TextAlignment="Right" FontFamily="Courier New" IsHitTestVisible="False"/>
 		<Slider x:Name="_positionSlider" Height="18" Canvas.Left="31" Style="{DynamicResource SimpleSlider}" Width="292" Value="5"/>
 	</Canvas>
