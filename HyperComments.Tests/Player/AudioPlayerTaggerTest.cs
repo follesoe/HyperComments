@@ -2,7 +2,7 @@
 using HyperComments.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HyperComments.Tests
+namespace HyperComments.Tests.Player
 {
     [TestClass]
     public class AudioPlayerTaggerTest : TaggerTest<AudioPlayerTaggerTest, AudioPlayerTag>

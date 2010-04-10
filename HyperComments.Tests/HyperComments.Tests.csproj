@@ -39,6 +39,10 @@
     <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Expression Blend SDK\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.CoreUtility, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.Shell.Immutable.10.0, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -48,11 +52,15 @@
     <Reference Include="Moq">
       <HintPath>..\lib\Moq\Moq.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -60,10 +68,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioPlayerTaggerProviderTest.cs" />
-    <Compile Include="AudioPlayerTaggerTest.cs" />
-    <Compile Include="AudioRecorderTaggerProviderTest.cs" />
-    <Compile Include="AudioRecorderTaggerTest.cs" />
+    <Compile Include="Player\AudioPlayerTaggerProviderTest.cs" />
+    <Compile Include="Player\AudioPlayerTaggerTest.cs" />
+    <Compile Include="Player\AudioPlayerTagTest.cs" />
+    <Compile Include="Recorder\AudioRecorderTaggerProviderTest.cs" />
+    <Compile Include="Recorder\AudioRecorderTaggerTest.cs" />
     <Compile Include="BDD.cs" />
     <Compile Include="Builders\ClassificationSpanBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

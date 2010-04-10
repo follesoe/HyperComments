@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Microsoft.VisualStudio.Text;
 
-namespace HyperComments.Tests
+namespace HyperComments.Tests.Recorder
 {
     [TestClass]
     public class AudioRecorderTaggerTest : TaggerTest<AudioRecorderTaggerTest, AudioRecorderTag>

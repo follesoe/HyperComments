@@ -1,35 +1,32 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
-
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HyperComments.Player;
 
-using HyperComments.Recorder;
-
-namespace HyperComments.Tests
+namespace HyperComments.Tests.Player
 {
     [TestClass]
-    public class AudioRecorderTaggerProviderTest
+    public class AudioPlayerTaggerProviderTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Throws_exception_if_buffer_is_null()
         {
-            provider.CreateTagger<AudioRecorderTag>(null);
+            provider.CreateTagger<AudioPlayerTag>(null);
         }
 
         [TestMethod]
-        public void Creates_the_AudioRecorderTagger()
+        public void Creates_the_AudioPlayerTagger()
         {
             var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<AudioRecorderTag>(buffer);
+            var tagger = provider.CreateTagger<AudioPlayerTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(AudioRecorderTagger));
+            Assert.IsInstanceOfType(tagger, typeof(AudioPlayerTagger));
         }
 
         [TestInitialize]
@@ -40,9 +37,8 @@ namespace HyperComments.Tests
                              .Returns(new Mock<IClassifier>().Object);
 
             AggregatorService = aggregatorService.Object;
-            ServiceProvider = new Mock<SVsServiceProvider>().Object;
 
-            provider = new AudioRecorderTaggerProvider();
+            provider = new AudioPlayerTaggerProvider();                                 
 
             var batch = new CompositionBatch();
             batch.AddPart(this);
@@ -56,9 +52,6 @@ namespace HyperComments.Tests
         [Export]
         public IClassifierAggregatorService AggregatorService;
 
-        [Export]
-        public SVsServiceProvider ServiceProvider;
-
-        private AudioRecorderTaggerProvider provider;
+        private AudioPlayerTaggerProvider provider;
     }
 }
