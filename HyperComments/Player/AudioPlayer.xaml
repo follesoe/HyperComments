@@ -144,9 +144,13 @@
 					</Storyboard>
 				</VisualState>
 			</VisualStateGroup>
-			<VisualStateGroup x:Name="SliderStateGroup" ei:ExtendedVisualStateManager.UseFluidLayout="True">
+			<VisualStateGroup x:Name="SliderStateGroup">
 				<VisualStateGroup.Transitions>
-					<VisualTransition GeneratedDuration="0:0:0.2"/>
+					<VisualTransition GeneratedDuration="0:0:0.2">
+						<VisualTransition.GeneratedEasingFunction>
+							<CubicEase EasingMode="EaseInOut"/>
+						</VisualTransition.GeneratedEasingFunction>
+					</VisualTransition>
 				</VisualStateGroup.Transitions>
 				<VisualState x:Name="Visible">
 					<Storyboard>
@@ -170,10 +174,6 @@
 		<VisualStateManager.CustomVisualStateManager>
 			<ei:ExtendedVisualStateManager/>
 		</VisualStateManager.CustomVisualStateManager>
-        <MediaElement x:Name="_mediaElement" 
-                      LoadedBehavior="Manual"
-                      UnloadedBehavior="Stop"
-                      Source="{Binding Path=Filename}" />
 		<Rectangle x:Name="_background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" Width="332" Height="18" Canvas.Left="4" RenderTransformOrigin="0.5,0.5" Canvas.Top="0">
 			<Rectangle.RenderTransform>
 				<TransformGroup>
@@ -206,8 +206,23 @@
 			</Path.RenderTransform>
 		</Path>
 		<Rectangle x:Name="textBackground" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="14" Canvas.Left="31" Canvas.Top="2" Width="292" IsHitTestVisible="False"/>
-		<TextBlock x:Name="_audioTitle" Height="13" Canvas.Left="36" Text="{Binding Message, Mode=OneWay}" Width="231" TextTrimming="CharacterEllipsis" Canvas.Top="3" FontFamily="Courier New" FontSize="10.667" IsHitTestVisible="False"/>
-		<TextBlock x:Name="_positionLabel" Height="13" Canvas.Left="254" Text="00:00" Width="66" FontSize="10.667" Canvas.Top="3" TextAlignment="Right" FontFamily="Courier New" IsHitTestVisible="False"/>
-		<Slider x:Name="_positionSlider" Height="18" Canvas.Left="31" Style="{DynamicResource SimpleSlider}" Width="292" Value="5"/>
-	</Canvas>
+		<TextBlock x:Name="_audioTitle" Height="13" Canvas.Left="36" Text="{Binding Path=Message}" Width="231" TextTrimming="CharacterEllipsis" Canvas.Top="3" FontFamily="Courier New" FontSize="10.667" IsHitTestVisible="False"/>
+        <TextBlock x:Name="_positionLabel" Height="13" Canvas.Left="254" Text="{Binding Path=CurrentPositionText}" Width="66" FontSize="10.667" Canvas.Top="3" TextAlignment="Right" FontFamily="Courier New" IsHitTestVisible="False"/>
+		
+        <Slider x:Name="_positionSlider" 
+                Minimum="0"
+                Maximum="{Binding Path=ScrubberMaxValue}"
+                SmallChange="1000"
+                LargeChange="5000"                
+                Height="18" 
+                Canvas.Left="31" 
+                Style="{DynamicResource SimpleSlider}" 
+                Width="292" 
+                Value="5"/>
+
+        <MediaElement x:Name="_mediaElement" 
+                      LoadedBehavior="Manual"
+                      UnloadedBehavior="Stop"
+                      Source="{Binding Path=Filename}" />
+    </Canvas>
 </UserControl>

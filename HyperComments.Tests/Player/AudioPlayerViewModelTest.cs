@@ -20,7 +20,7 @@ namespace HyperComments.Tests.Player
         [TestMethod]
         public void Has_default_time_position()
         {
-            Assert.AreEqual("00:00:00", viewModel.CurrentPosition);
+            Assert.AreEqual("00:00", viewModel.CurrentPositionText);
         }
 
         [TestMethod]

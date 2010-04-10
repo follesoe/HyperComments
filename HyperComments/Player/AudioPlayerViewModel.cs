@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Windows;
 
 namespace HyperComments.Player
@@ -38,9 +39,16 @@ namespace HyperComments.Player
             }
         }
 
-        public string CurrentPosition
+        private string _currentPositionText;
+
+        public string CurrentPositionText
         {
-            get { return "00:00:00"; }
+            get { return _currentPositionText; }
+            set
+            {
+                _currentPositionText = value;
+                OnPropertyChanged("CurrentPositionText");
+            }
         }
 
         private Duration _duration;
@@ -58,12 +66,16 @@ namespace HyperComments.Player
 
         public double ScrubberMaxValue
         {
-            get { return Duration.TimeSpan.TotalMilliseconds; }
+            get 
+            {
+                return Duration.HasTimeSpan ? Duration.TimeSpan.TotalMilliseconds : 0;
+            }
         }
         
         public AudioPlayerViewModel()
         {
-            FileAccess = new FileSystemAdapter();    
+            FileAccess = new FileSystemAdapter();
+            _currentPositionText = "00:00";
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace HyperComments.Player
 {
@@ -11,6 +13,8 @@ namespace HyperComments.Player
 	    private const string ExpandedState = "Expanded";
 	    private const string PlayState = "Play";
 	    private const string PauseState = "Pause";
+
+        private readonly DispatcherTimer _timer;
 
 	    public string Filename
 	    {
@@ -28,6 +32,12 @@ namespace HyperComments.Player
 			InitializeComponent();
 
             _playPause.Click += OnPlayPauseClick;
+            _mediaElement.MediaOpened += OnMediaOpened;
+            _positionSlider.ValueChanged += OnScrubberPositionChanged;
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = new TimeSpan(0, 0, 0, 1);
+            _timer.Tick += OnUpdatePosition;
 
             MouseEnter += OnMouseEnter;
             MouseLeave += OnMouseLeave;
@@ -36,16 +46,40 @@ namespace HyperComments.Player
 		    VisualStateManager.GoToState(this, CollapsedState, false);
 		}
 
+        private void OnUpdatePosition(object sender, EventArgs e)
+        {
+            ViewModel.CurrentPositionText = string.Format("{0:00}:{1:00}",
+                    _mediaElement.Position.Minutes,
+                    _mediaElement.Position.Seconds);
+
+            _positionSlider.Value = _mediaElement.Position.TotalMilliseconds;
+        }
+
+        private void OnScrubberPositionChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(Math.Abs(e.NewValue - e.OldValue) > 1000)
+            {
+                _mediaElement.Position = TimeSpan.FromMilliseconds(e.NewValue);
+            }
+        }
+
+        private void OnMediaOpened(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Duration = _mediaElement.NaturalDuration;
+        }
+
         private void OnPlayPauseClick(object sender, RoutedEventArgs e)
         {
             if(VisualStateGroup.CurrentState.Name == CollapsedState)
             {
+                _timer.Start();
                 _mediaElement.Play();
                 VisualStateManager.GoToState(this, ExpandedState, true);
                 VisualStateManager.GoToState(_playPause, PauseState, true);
             }
             else
             {
+                _timer.Stop();
                 _mediaElement.Pause();             
                 VisualStateManager.GoToState(this, CollapsedState, true);
                 VisualStateManager.GoToState(this, HiddenState, true);
