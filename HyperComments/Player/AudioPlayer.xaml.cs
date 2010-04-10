@@ -80,9 +80,9 @@ namespace HyperComments.Player
             else
             {
                 _timer.Stop();
-                _mediaElement.Pause();             
-                VisualStateManager.GoToState(this, CollapsedState, true);
-                VisualStateManager.GoToState(this, HiddenState, true);
+                _mediaElement.Pause();
+                VisualStateManager.GoToState(this, HiddenState, false);
+                VisualStateManager.GoToState(this, CollapsedState, true);                
                 VisualStateManager.GoToState(_playPause, PlayState, true);
             }
         }

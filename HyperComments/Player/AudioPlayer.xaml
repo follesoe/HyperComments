@@ -103,7 +103,7 @@
 		<VisualStateManager.VisualStateGroups>
 			<VisualStateGroup x:Name="VisualStateGroup">
 				<VisualStateGroup.Transitions>
-					<VisualTransition GeneratedDuration="0:0:0.2">
+					<VisualTransition GeneratedDuration="0:0:0.15">
 						<VisualTransition.GeneratedEasingFunction>
 							<CubicEase EasingMode="EaseInOut"/>
 						</VisualTransition.GeneratedEasingFunction>
@@ -112,13 +112,13 @@
 				<VisualState x:Name="Collapsed">
 					<Storyboard>
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_audioTitle">
-							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 						</ObjectAnimationUsingKeyFrames>
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="_positionLabel">
-							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 						</ObjectAnimationUsingKeyFrames>
 						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBackground">
-							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+							<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
 						</ObjectAnimationUsingKeyFrames>
 						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="_background">
 							<EasingDoubleKeyFrame KeyTime="0" Value="0.099"/>
@@ -130,6 +130,15 @@
 							<EasingDoubleKeyFrame KeyTime="0" Value="-298.12"/>
 						</DoubleAnimationUsingKeyFrames>
 						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="_playPause">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBackground">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_audioTitle">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_positionLabel">
 							<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 						</DoubleAnimationUsingKeyFrames>
 					</Storyboard>
@@ -151,7 +160,7 @@
 			</VisualStateGroup>
 			<VisualStateGroup x:Name="SliderStateGroup">
 				<VisualStateGroup.Transitions>
-					<VisualTransition GeneratedDuration="0:0:0.2">
+					<VisualTransition GeneratedDuration="0:0:0.15">
 						<VisualTransition.GeneratedEasingFunction>
 							<CubicEase EasingMode="EaseInOut"/>
 						</VisualTransition.GeneratedEasingFunction>
@@ -164,6 +173,9 @@
 						</DoubleAnimationUsingKeyFrames>
 						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_positionLabel">
 							<EasingDoubleKeyFrame KeyTime="0" Value="0.15"/>
+						</DoubleAnimationUsingKeyFrames>
+						<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_positionSlider">
+							<EasingDoubleKeyFrame KeyTime="0" Value="0.76"/>
 						</DoubleAnimationUsingKeyFrames>
 					</Storyboard>
 				</VisualState>
@@ -220,7 +232,7 @@
                 Canvas.Left="31" 
                 Style="{DynamicResource SimpleSlider}" 
                 Width="292" 
-                Value="5"/>
+                Value="5" d:IsHidden="True"/>
 
         <MediaElement x:Name="_mediaElement" 
                       LoadedBehavior="Manual"
