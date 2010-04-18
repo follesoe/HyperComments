@@ -2,8 +2,7 @@
 {
     public class AudioRecorderViewModel : BaseViewModel
     {
-        public IAccessFiles FileAccess { get; set; }
-        public IRecordAudio AudioRecorder { get; set; }
+        public RecordingCommand RecordingCommand { get; set; }
 
         private string _durationText;
 
@@ -18,9 +17,10 @@
         }
 
         public AudioRecorderViewModel()
-        {
-            FileAccess = new FileSystemAdapter();
-            AudioRecorder = new Mp3AudioRecorder();
+        {            
+            RecordingCommand = new RecordingCommand();
+            RecordingCommand.AudioRecorder = new Mp3AudioRecorder();
+
             DurationText = "00:00:00";
         }
     }

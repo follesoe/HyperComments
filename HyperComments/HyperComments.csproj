@@ -41,6 +41,18 @@
     <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Istrib.Sound">
+      <HintPath>..\lib\SoundCapture\Istrib.Sound.dll</HintPath>
+    </Reference>
+    <Reference Include="Istrib.Sound.Mp3">
+      <HintPath>..\lib\SoundCapture\Istrib.Sound.Mp3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX">
+      <HintPath>..\lib\SoundCapture\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound">
+      <HintPath>..\lib\SoundCapture\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.VisualStudio.CoreUtility">
       <Private>False</Private>
@@ -70,6 +82,12 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="yeti.mmedia">
+      <HintPath>..\lib\SoundCapture\yeti.mmedia.dll</HintPath>
+    </Reference>
+    <Reference Include="yeti.mp3">
+      <HintPath>..\lib\SoundCapture\yeti.mp3.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioDirectory.cs" />
@@ -90,7 +108,9 @@
     <Compile Include="Recorder\AudioRecorderViewModel.cs" />
     <Compile Include="Recorder\IRecordAudio.cs" />
     <Compile Include="Recorder\Mp3AudioRecorder.cs" />
+    <Compile Include="Recorder\RecordingCommand.cs" />
     <Compile Include="RegexTagger.cs" />
+    <Compile Include="SystemTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">
@@ -110,6 +130,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lame_enc.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />

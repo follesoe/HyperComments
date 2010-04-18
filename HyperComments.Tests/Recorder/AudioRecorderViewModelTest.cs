@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using HyperComments.Recorder;
 
-using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HyperComments.Tests.Recorder
@@ -22,20 +21,22 @@ namespace HyperComments.Tests.Recorder
             Assert.AreEqual("DurationText", notifications.Dequeue());
         }
 
+        [TestMethod]
+        public void Expose_command_to_start_and_stop_recording()
+        {
+            Assert.IsNotNull(viewModel.RecordingCommand);
+            Assert.IsInstanceOfType(viewModel.RecordingCommand, typeof(RecordingCommand));
+        }
+
         [TestInitialize]
         public void Setup()
         {
             notifications = new Queue<string>();
             viewModel = new AudioRecorderViewModel();
             viewModel.PropertyChanged += (o, e) => notifications.Enqueue(e.PropertyName);
-
-            fileSystem = new Mock<IAccessFiles>();
-            audioRecorder = new Mock<IRecordAudio>();
         }
 
         private Queue<string> notifications;
         private AudioRecorderViewModel viewModel;
-        private Mock<IAccessFiles> fileSystem;
-        private Mock<IRecordAudio> audioRecorder;
     }
 }
