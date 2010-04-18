@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HyperComments.Tests.Builders;
-using HyperComments.Tests.Stubs;
-using Microsoft.VisualStudio.Text;
-using Microsoft.VisualStudio.Text.Classification;
-using Microsoft.VisualStudio.Text.Tagging;
+﻿using System.Linq;
 
-using Moq;
+using HyperComments.Tests.Stubs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HyperComments.Tests

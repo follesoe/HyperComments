@@ -87,6 +87,9 @@
     <Compile Include="Recorder\AudioRecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recorder\AudioRecorderTaggerProvider.cs" />
+    <Compile Include="Recorder\AudioRecorderViewModel.cs" />
+    <Compile Include="Recorder\IRecordAudio.cs" />
+    <Compile Include="Recorder\Mp3AudioRecorder.cs" />
     <Compile Include="RegexTagger.cs" />
   </ItemGroup>
   <ItemGroup>
