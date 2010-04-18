@@ -2,11 +2,14 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Player="clr-namespace:HyperComments.Player;assembly=HyperComments" 
+    xmlns:Recorder="clr-namespace:HyperComments.Recorder;assembly=HyperComments" 
     x:Class="HyperComments.UITestSurface.MainWindow"
     Title="MainWindow" Height="350" Width="525">
     <Grid>
         
     	<Player:AudioPlayer x:Name="_player" Margin="75,111,84,0" VerticalAlignment="Top" Width="350" Height="18"/>
+        <Recorder:AudioRecorder x:Name="_recorder" Margin="76,134,248,158" />
+        
     	<Button Content="Pick a mp3 file!" x:Name="_pickButton" HorizontalAlignment="Left" Height="31" Margin="75,76,0,0" VerticalAlignment="Top" Width="128"/>
         
     </Grid>

@@ -101,6 +101,9 @@
     <Compile Include="Player\AudioPlayerTagger.cs" />
     <Compile Include="Player\AudioPlayerTaggerProvider.cs" />
     <Compile Include="Player\AudioPlayerViewModel.cs" />
+    <Compile Include="Recorder\AudioRecorder.xaml.cs">
+      <DependentUpon>AudioRecorder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Recorder\AudioRecorderTag.cs" />
     <Compile Include="Recorder\AudioRecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +128,10 @@
     <Page Include="Player\AudioPlayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Recorder\AudioRecorder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
