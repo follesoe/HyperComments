@@ -112,6 +112,7 @@
     <Compile Include="Recorder\IRecordAudio.cs" />
     <Compile Include="Recorder\Mp3AudioRecorder.cs" />
     <Compile Include="Recorder\RecordingCommand.cs" />
+    <Compile Include="Recorder\RecordingCompleteEventArgs.cs" />
     <Compile Include="RegexTagger.cs" />
     <Compile Include="SystemTime.cs" />
   </ItemGroup>

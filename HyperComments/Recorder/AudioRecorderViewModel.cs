@@ -20,7 +20,6 @@
         {            
             RecordingCommand = new RecordingCommand();
             RecordingCommand.AudioRecorder = new Mp3AudioRecorder();
-
             DurationText = "00:00:00";
         }
     }

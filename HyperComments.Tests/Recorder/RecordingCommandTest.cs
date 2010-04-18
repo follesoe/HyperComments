@@ -38,6 +38,18 @@ namespace HyperComments.Tests.Recorder
         }
 
         [TestMethod]
+        public void Raises_event_when_recording_is_completed()
+        {
+            string filename = null;
+            command.RecordingCompleted += (o, e) => filename = e.Filename;
+
+            command.Execute(null); // Starts..
+            command.Execute(null); // Stops...
+
+            Assert.IsNotNull(filename, "Should be set when RecordingCompleted event fires.");
+        }
+
+        [TestMethod]
         public void Generates_filename_for_recording()
         {
             SystemTime.Now = () => new DateTime(2010, 4, 15, 9, 35, 0);
@@ -45,24 +57,27 @@ namespace HyperComments.Tests.Recorder
             string username = command.GetCurrentUser();
             string expectedFilename = @"c:\150410-093500-MyFile-" + username + ".mp3";
 
-            audioRecorder
-                .Setup(a => a.Start(It.Is<string>(filename => filename == expectedFilename)))
-                .AtMostOnce().Verifiable("Did not start recording with expected filename.");
+            audioRecorder = new Mock<IRecordAudio>();
+            audioRecorder.Setup(a => a.Start(It.Is<string>(filename => filename == expectedFilename)))
+                         .AtMostOnce().Verifiable("Did not start recording with expected filename.");
             command.AudioRecorder = audioRecorder.Object;
 
             command.Execute(null);
 
             audioRecorder.VerifyAll();
-        }
+        }       
 
         [TestInitialize]
         public void Setup()
         {
             audioRecorder = new Mock<IRecordAudio>();
+            audioRecorder.Setup(a => a.Start(It.IsAny<string>()));
+            audioRecorder.Setup(a => a.Stop());
 
             command = new RecordingCommand();
             command.RecordingDirectory = @"c:\";
             command.ActiveDocument = "MyFile.cs";
+            command.AudioRecorder = audioRecorder.Object;
         }
 
         private RecordingCommand command;
