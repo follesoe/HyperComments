@@ -22,6 +22,18 @@ namespace HyperComments.Tests.Recorder
         }
 
         [TestMethod]
+        public void Fires_event_when_recording_is_complete()
+        {
+            string filename = null;
+            viewModel.RecordingComplete += (o, e) => filename = e.Filename;
+
+            viewModel.RecordingCommand.Execute(null); // Start recording
+            viewModel.RecordingCommand.Execute(null); // Stop recording
+
+            Assert.IsNotNull(filename, "Should fire event when recording is complete.");
+        }
+
+        [TestMethod]
         public void Expose_command_to_start_and_stop_recording()
         {
             Assert.IsNotNull(viewModel.RecordingCommand);

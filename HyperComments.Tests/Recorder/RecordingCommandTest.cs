@@ -40,13 +40,10 @@ namespace HyperComments.Tests.Recorder
         [TestMethod]
         public void Raises_event_when_recording_is_completed()
         {
-            string filename = null;
-            command.RecordingCompleted += (o, e) => filename = e.Filename;
-
             command.Execute(null); // Starts..
             command.Execute(null); // Stops...
 
-            Assert.IsNotNull(filename, "Should be set when RecordingCompleted event fires.");
+            Assert.IsNotNull(recordedFilename, "Should be set when RecordingCompleted event fires.");
         }
 
         [TestMethod]
@@ -74,12 +71,18 @@ namespace HyperComments.Tests.Recorder
             audioRecorder.Setup(a => a.Start(It.IsAny<string>()));
             audioRecorder.Setup(a => a.Stop());
 
-            command = new RecordingCommand();
+            command = new RecordingCommand(RecordingCompletedCallback);
             command.RecordingDirectory = @"c:\";
             command.ActiveDocument = "MyFile.cs";
             command.AudioRecorder = audioRecorder.Object;
         }
 
+        private void RecordingCompletedCallback(string filename)
+        {
+            recordedFilename = filename;
+        }
+
+        private string recordedFilename;
         private RecordingCommand command;
         private Mock<IRecordAudio> audioRecorder;
     }

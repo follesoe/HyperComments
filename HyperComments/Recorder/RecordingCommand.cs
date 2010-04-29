@@ -8,7 +8,8 @@ namespace HyperComments.Recorder
     public class RecordingCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        public event EventHandler<RecordingCompleteEventArgs> RecordingCompleted;
+
+        private readonly Action<string> _recordingCompletedCallback;
 
         public IRecordAudio AudioRecorder { get; set; }
         public string RecordingDirectory { get; set; }
@@ -17,9 +18,10 @@ namespace HyperComments.Recorder
         private bool _isRecording;
         private string _filename;
 
-        public RecordingCommand()
+        public RecordingCommand(Action<string> recordingCompletedCallback)
         {
-            _isRecording = false;   
+            _isRecording = false;
+            _recordingCompletedCallback = recordingCompletedCallback;
         }
 
         public void Execute(object parameter)
@@ -28,7 +30,7 @@ namespace HyperComments.Recorder
             {
                 _isRecording = false;
                 AudioRecorder.Stop();
-                OnRecordingCompleted();
+                _recordingCompletedCallback(_filename);
             }
             else
             {
@@ -36,14 +38,6 @@ namespace HyperComments.Recorder
                 _filename = GetRecordingFilename();
                 AudioRecorder.Start(_filename);    
             }            
-        }
-
-        private void OnRecordingCompleted()
-        {
-            if(RecordingCompleted != null)
-            {
-                RecordingCompleted(this, new RecordingCompleteEventArgs(_filename));
-            }
         }
 
         private string GetRecordingFilename()
