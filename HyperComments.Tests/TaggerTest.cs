@@ -16,7 +16,7 @@ namespace HyperComments.Tests
     {
         protected void we_get_the_tags()
         {
-            tags = tagger.GetTags(spans);
+            tags = tagger.GetTags(spans).ToList();
         }
 
         protected void create_spans(params string[] lines)

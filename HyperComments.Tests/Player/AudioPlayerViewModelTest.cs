@@ -41,7 +41,7 @@ namespace HyperComments.Tests.Player
         public void Displays_message_if_file_does_not_exist()
         {
             fileAccess = new Mock<IAccessFiles>();
-            fileAccess.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+            fileAccess.Setup(f => f.FileExists(It.IsAny<string>())).Returns(false);
             viewModel.FileAccess = fileAccess.Object;
 
             viewModel.Filename = "comment.mp3";
@@ -69,7 +69,7 @@ namespace HyperComments.Tests.Player
         public void Setup()
         {
             fileAccess = new Mock<IAccessFiles>();
-            fileAccess.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+            fileAccess.Setup(f => f.FileExists(It.IsAny<string>())).Returns(true);
 
             viewModel = new AudioPlayerViewModel();
             viewModel.PropertyChanged += (o, e) => notifications.Enqueue(e.PropertyName);

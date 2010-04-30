@@ -1,7 +1,11 @@
-﻿namespace HyperComments
+﻿using System.IO;
+
+namespace HyperComments
 {
     public interface IAccessFiles
     {
-        bool Exists(string path);
+        bool FileExists(string path);
+        bool DirectoryExists(string path);
+        DirectoryInfo CreateDirectory(string path);
     }
 }

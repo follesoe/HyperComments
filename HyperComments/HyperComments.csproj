@@ -90,7 +90,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AudioDirectory.cs" />
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="FileSystemAdapter.cs" />
     <Compile Include="IAccessFiles.cs" />

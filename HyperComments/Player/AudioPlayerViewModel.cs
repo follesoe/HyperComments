@@ -29,7 +29,7 @@ namespace HyperComments.Player
                     return "Filename not set...";
                 }
 
-                if(FileAccess.Exists(_filename))
+                if(FileAccess.FileExists(_filename))
                 {
                     return Path.GetFileName(_filename);
                 }
