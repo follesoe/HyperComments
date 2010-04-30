@@ -1,5 +1,7 @@
 ﻿using System.Windows;
-using Microsoft.Win32;
+using System.Windows.Forms;
+using HyperComments.Recorder;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace HyperComments.UITestSurface
 {
@@ -10,6 +12,10 @@ namespace HyperComments.UITestSurface
             InitializeComponent();
 
             _pickButton.Click += OnPickClick;
+            _pickDirectoryButton.Click += OnPickDirectoryClick;
+
+            _recorder.ViewModel.ActiveDocument = "TestDocument";
+            _recorder.ViewModel.RecordingComplete += OnRecordingCompleted;
         }
 
         private void OnPickClick(object sender, RoutedEventArgs e)
@@ -22,6 +28,20 @@ namespace HyperComments.UITestSurface
             {
                 _player.Filename = openFileDialog.FileName;
             }
+        }
+
+        private void OnPickDirectoryClick(object sender, RoutedEventArgs e)
+        {
+            var openDirectoryDialog = new FolderBrowserDialog ();
+            if(openDirectoryDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                _recorder.ViewModel.RecordingDirectory = openDirectoryDialog.SelectedPath;
+            }
+        }
+
+        private void OnRecordingCompleted(object sender, RecordingCompleteEventArgs e)
+        {
+            _player.Filename = e.Filename;
         }
     }
 }
