@@ -73,6 +73,7 @@
     <Compile Include="BDD.cs" />
     <Compile Include="Builders\ClassificationSpanBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recorder\AudioRecorderTagTest.cs" />
     <Compile Include="Recorder\AudioRecorderViewModelTest.cs" />
     <Compile Include="Recorder\RecordingCommandTest.cs" />
     <Compile Include="RegexTaggerTest.cs" />

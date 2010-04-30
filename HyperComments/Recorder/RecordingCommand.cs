@@ -22,6 +22,8 @@ namespace HyperComments.Recorder
         {
             _isRecording = false;
             _recordingCompletedCallback = recordingCompletedCallback;
+
+            AudioRecorder = new Mp3AudioRecorder();
         }
 
         public void Execute(object parameter)

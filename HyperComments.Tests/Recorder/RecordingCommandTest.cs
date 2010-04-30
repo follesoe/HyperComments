@@ -16,6 +16,13 @@ namespace HyperComments.Tests.Recorder
         }
 
         [TestMethod]
+        public void Default_recorder_is_mp3()
+        {
+            command = new RecordingCommand(RecordingCompletedCallback);
+            Assert.IsInstanceOfType(command.AudioRecorder, typeof(Mp3AudioRecorder));
+        }
+
+        [TestMethod]
         public void Starts_recording_when_comand_is_executed()
         {
             audioRecorder.Setup(a => a.Start(It.IsAny<string>())).AtMostOnce().Verifiable("Did not start recording.");

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
+
+using HyperComments.Recorder;
+
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HyperComments.Recorder;
 
 namespace HyperComments.Tests.Recorder
 {

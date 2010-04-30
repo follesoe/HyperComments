@@ -9,6 +9,18 @@ namespace HyperComments.Recorder
 
         private string _durationText;
 
+        public string RecordingDirectory
+        {
+            get { return RecordingCommand.RecordingDirectory; }
+            set { RecordingCommand.RecordingDirectory = value; }
+        }
+
+        public string ActiveDocument
+        {
+            get { return RecordingCommand.ActiveDocument; }
+            set { RecordingCommand.ActiveDocument = value; }
+        }
+
         public string DurationText
         {
             get { return _durationText; }
@@ -22,7 +34,6 @@ namespace HyperComments.Recorder
         public AudioRecorderViewModel()
         {            
             RecordingCommand = new RecordingCommand(RecordingCompleteCallback);
-            RecordingCommand.AudioRecorder = new Mp3AudioRecorder();
             DurationText = "00:00:00";
         }
 

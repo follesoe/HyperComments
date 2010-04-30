@@ -18,7 +18,9 @@ namespace HyperComments.Recorder
 
         public override AudioRecorderTag CreateTag(Match regexMatch, SnapshotSpan span)
         {
-            return new AudioRecorderTag();            
+            string recordingDirectory = "";
+            string activeDocument = "";
+            return new AudioRecorderTag(_buffer, span, recordingDirectory, activeDocument);
         }
     }
 }
