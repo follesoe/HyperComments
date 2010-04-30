@@ -35,22 +35,13 @@ namespace HyperComments.Tests.Recorder
         public void Stops_recording_is_currently_recording()
         {
             audioRecorder.Setup(a => a.Start(It.IsAny<string>())).AtMostOnce().Verifiable("Did not start recording.");
-            audioRecorder.Setup(a => a.Stop()).AtMostOnce().Verifiable("Did not stop recording.");
+            audioRecorder.Setup(a => a.Stop(It.IsAny<Action<string>>())).AtMostOnce().Verifiable("Did not stop recording.");
             command.AudioRecorder = audioRecorder.Object;
 
             command.Execute(null);
             command.Execute(null);
 
             audioRecorder.VerifyAll();
-        }
-
-        [TestMethod]
-        public void Raises_event_when_recording_is_completed()
-        {
-            command.Execute(null); // Starts..
-            command.Execute(null); // Stops...
-
-            Assert.IsNotNull(recordedFilename, "Should be set when RecordingCompleted event fires.");
         }
 
         [TestMethod]
@@ -76,7 +67,7 @@ namespace HyperComments.Tests.Recorder
         {
             audioRecorder = new Mock<IRecordAudio>();
             audioRecorder.Setup(a => a.Start(It.IsAny<string>()));
-            audioRecorder.Setup(a => a.Stop());
+            audioRecorder.Setup(a => a.Stop(It.IsAny<Action<string>>()));
 
             command = new RecordingCommand(RecordingCompletedCallback);
             command.RecordingDirectory = @"c:\";

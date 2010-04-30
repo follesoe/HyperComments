@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using HyperComments.Recorder;
-
+using HyperComments.Tests.Stubs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HyperComments.Tests.Recorder
@@ -45,6 +45,9 @@ namespace HyperComments.Tests.Recorder
         {
             notifications = new Queue<string>();
             viewModel = new AudioRecorderViewModel();
+            viewModel.ActiveDocument = "some_file.cs";
+            viewModel.RecordingDirectory = @"c:\audio";
+            viewModel.RecordingCommand.AudioRecorder = new AudioRecorderStub();
             viewModel.PropertyChanged += (o, e) => notifications.Enqueue(e.PropertyName);
         }
 

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using HyperComments.Recorder;
 using HyperComments.Tests.Builders;
+using HyperComments.Tests.Stubs;
 using Microsoft.VisualStudio.Text;
 
 using Moq;
@@ -38,7 +39,8 @@ namespace HyperComments.Tests.Recorder
                       .Verifiable("Expects the tag to replace {recorder} with {audio: ...}");
 
             tag = new AudioRecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);
-                        
+            tag.RecorderView.ViewModel.RecordingCommand.AudioRecorder = new AudioRecorderStub();
+
             tag.RecorderView.ViewModel.RecordingCommand.Execute(null);
             tag.RecorderView.ViewModel.RecordingCommand.Execute(null);
 
@@ -53,7 +55,7 @@ namespace HyperComments.Tests.Recorder
 
             activeDocument = "myfile.cs";
             recordingDirectory = @"c:\recordings";
-            tag = new AudioRecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);
+            tag = new AudioRecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);            
         }
 
         private string recordingDirectory;

@@ -77,6 +77,7 @@
     <Compile Include="Recorder\AudioRecorderViewModelTest.cs" />
     <Compile Include="Recorder\RecordingCommandTest.cs" />
     <Compile Include="RegexTaggerTest.cs" />
+    <Compile Include="Stubs\AudioRecorderStub.cs" />
     <Compile Include="Stubs\DocumentStub.cs" />
     <Compile Include="Stubs\DTE2Stub.cs" />
     <Compile Include="Stubs\Solution2Stub.cs" />

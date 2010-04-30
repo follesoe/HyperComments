@@ -31,8 +31,7 @@ namespace HyperComments.Recorder
             if(_isRecording)
             {
                 _isRecording = false;
-                AudioRecorder.Stop();
-                _recordingCompletedCallback(_filename);
+                AudioRecorder.Stop(_recordingCompletedCallback);
             }
             else
             {
