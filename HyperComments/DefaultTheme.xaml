@@ -133,7 +133,13 @@
 					<VisualStateGroup.Transitions>
 						<VisualTransition GeneratedDuration="0:0:0.05"/>
 					</VisualStateGroup.Transitions>
-					<VisualState x:Name="Record"/>
+					<VisualState x:Name="Record">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="stopRectangle">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
 					<VisualState x:Name="Stop">
 						<Storyboard>
 							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stopRectangle">
@@ -142,6 +148,9 @@
 							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="recordingEllipse">
 								<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
 							</DoubleAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="recordingEllipse">
+								<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+							</ObjectAnimationUsingKeyFrames>
 						</Storyboard>
 					</VisualState>
 				</VisualStateGroup>
