@@ -99,6 +99,33 @@
     </UserControl.Resources>
     
     <Grid>
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisualStateGroup">
+    			<VisualStateGroup.Transitions>
+    				<VisualTransition GeneratedDuration="0:0:0.15"/>
+    			</VisualStateGroup.Transitions>
+    			<VisualState x:Name="Collapsed">
+    				<Storyboard>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="textBackground">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    					</DoubleAnimationUsingKeyFrames>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_audioTitle">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+    					</DoubleAnimationUsingKeyFrames>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="_record">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="-61.173"/>
+    					</DoubleAnimationUsingKeyFrames>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="_background">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="0.297"/>
+    					</DoubleAnimationUsingKeyFrames>
+    					<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="_background">
+    						<EasingDoubleKeyFrame KeyTime="0" Value="-27.107"/>
+    					</DoubleAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="Expanded"/>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
     	<Rectangle x:Name="_background" Fill="{DynamicResource LightBackgroundBrush}" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Margin="4,0,0,0" HorizontalAlignment="Left" Width="77.07">
     		<Rectangle.RenderTransform>
     			<TransformGroup>
