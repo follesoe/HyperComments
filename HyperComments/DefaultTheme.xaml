@@ -1,10 +1,116 @@
 ﻿<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
 	<SolidColorBrush x:Key="IconForegroundInactiveBrush" Color="#FF3B3B3B"/>
 	<SolidColorBrush x:Key="DarkBackgroundBrush" Color="#FF707070"/>
 	<SolidColorBrush x:Key="MediumBackgroundBrush" Color="#FFA1A1A1"/>
 	<SolidColorBrush x:Key="LightBackgroundBrush" Color="Silver"/>
 	<SolidColorBrush x:Key="SuperLightBackgroundBrush" Color="#FFE7E7E7"/>
 	<!-- Resource dictionary entries should be defined here. -->
+	<ControlTemplate x:Key="PlayButtonTemplate" TargetType="{x:Type Button}">
+		<Canvas Height="18" Margin="0">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="playIcon" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause1" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
+							</ObjectAnimationUsingKeyFrames>								
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause2" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
+							</ObjectAnimationUsingKeyFrames>															
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="MouseOver">
+						<Storyboard>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="playIcon" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause1" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
+							</ObjectAnimationUsingKeyFrames>								
+							<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause2" Storyboard.TargetProperty="Fill">
+								<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
+							</ObjectAnimationUsingKeyFrames>															
+						</Storyboard>
+					</VisualState>
+					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Disabled"/>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="PlayPause">
+					<VisualStateGroup.Transitions>
+						<VisualTransition GeneratedDuration="0:0:0.2"/>
+					</VisualStateGroup.Transitions>
+					<VisualState x:Name="Play"/>
+					<VisualState x:Name="Pause">
+						<Storyboard>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="playIcon">
+								<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pause1">
+								<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="pause2">
+								<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</VisualState>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Unfocused"/>
+					<VisualState x:Name="Focused"/>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="ValidationStates">
+					<VisualState x:Name="Valid"/>
+					<VisualState x:Name="InvalidFocused"/>
+					<VisualState x:Name="InvalidUnfocused"/>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Path x:Name="playBackground" Data="M0,0 L21.010416,0 C23.219557,1.4901161E-07 25.010416,1.7908612 25.010416,3.9999999 L25.010416,16 C25.010416,18.209139 23.219557,20 21.010416,20 L0.0052051544,20 C0.0052051544,20 0.0052108765,19.998251 0.0052204132,19.994795 L0.0052490234,19.984419 3.9994164,10 1.5258789E-05,0.0024944544 z" Fill="{DynamicResource DarkBackgroundBrush}" Stretch="Fill" Stroke="Black" StrokeThickness="0" UseLayoutRounding="False" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18" Canvas.Top="0"/>
+			<Path x:Name="playIcon" Data="M5.0000001,0 L10,7.6000003 L-2.0915641E-08,7.6000003 z" Fill="{DynamicResource IconForegroundInactiveBrush}" Height="7.6" Canvas.Left="9.661" Margin="0" RenderTransformOrigin="0.500000001045782,0.499999974903309" Stretch="Fill" StrokeThickness="0" Canvas.Top="6" UseLayoutRounding="False" Width="10" d:LayoutRounding="Auto" >
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform/>
+						<SkewTransform/>
+						<RotateTransform Angle="90"/>
+						<TranslateTransform/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Rectangle x:Name="pause1" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="11" Canvas.Left="10" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0"/>
+			<Rectangle x:Name="pause2" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="11" Canvas.Left="15" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0"/>
+		</Canvas>
+	</ControlTemplate>
+	<ControlTemplate x:Key="RecordButtonTemplate" TargetType="{x:Type Button}">
+		<Canvas Height="18" Margin="0">
+			<VisualStateManager.VisualStateGroups>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal"/>
+					<VisualState x:Name="MouseOver"/>
+					<VisualState x:Name="Pressed"/>
+					<VisualState x:Name="Disabled"/>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="RecordStop">
+					<VisualStateGroup.Transitions>
+						<VisualTransition GeneratedDuration="0:0:0.2"/>
+					</VisualStateGroup.Transitions>
+					<VisualState x:Name="Record"/>
+					<VisualState x:Name="Stop"/>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="FocusStates">
+					<VisualState x:Name="Unfocused"/>
+					<VisualState x:Name="Focused"/>
+				</VisualStateGroup>
+				<VisualStateGroup x:Name="ValidationStates">
+					<VisualState x:Name="Valid"/>
+					<VisualState x:Name="InvalidFocused"/>
+					<VisualState x:Name="InvalidUnfocused"/>
+				</VisualStateGroup>
+			</VisualStateManager.VisualStateGroups>
+			<Path x:Name="playBackground" Data="M0,0 L21.010416,0 C23.219557,1.4901161E-07 25.010416,1.7908612 25.010416,3.9999999 L25.010416,16 C25.010416,18.209139 23.219557,20 21.010416,20 L0.0052051544,20 C0.0052051544,20 0.0052108765,19.998251 0.0052204132,19.994795 L0.0052490234,19.984419 3.9994164,10 1.5258789E-05,0.0024944544 z" Fill="{DynamicResource DarkBackgroundBrush}" Stretch="Fill" Stroke="Black" StrokeThickness="0" UseLayoutRounding="False" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18" Canvas.Top="0"/>
+		</Canvas>
+	</ControlTemplate>
 </ResourceDictionary>

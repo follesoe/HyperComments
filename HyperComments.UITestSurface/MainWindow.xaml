@@ -8,9 +8,9 @@
     <Grid>
         
     	<Player:AudioPlayer x:Name="_player" Margin="75,111,84,0" VerticalAlignment="Top" Width="350" Height="18"/>
-        <Recorder:AudioRecorder x:Name="_recorder" Margin="76,134,248,158" />
+        <Recorder:AudioRecorder x:Name="_recorder" Margin="75,134,248,158" />
         
-    	<Button Content="Pick a mp3 file!" x:Name="_pickButton" HorizontalAlignment="Left" Height="31" Margin="75,76,0,0" VerticalAlignment="Top" Width="128"/>
+    	<Button Content="Pick mp3 file" x:Name="_pickButton" HorizontalAlignment="Left" Height="31" Margin="75,76,0,0" VerticalAlignment="Top" Width="128"/>
         <Button Content="Pick recording directory" Name="_pickDirectoryButton" Height="31" HorizontalAlignment="Left" Margin="209,76,0,0" VerticalAlignment="Top" Width="216" />
     </Grid>
 </Window>

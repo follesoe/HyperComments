@@ -208,7 +208,7 @@
 				</TransformGroup>
 			</Button.RenderTransform>
 		</Button>
-		<Path x:Name="volumeBackground" Data="M3.9999998,8.97424E-08 C9.666667,-2.9914133E-08 24.989584,-2.9914133E-08 24.989584,8.97424E-08 L24.989599,0.0024942033 28.989,10 24.994833,19.984419 24.994804,19.994795 C24.994795,19.998251 24.994789,20 24.994789,20 24.994789,20 9.666667,20 3.9999998,20 1.790861,20 0,18.209139 0,16 L0,4 C0,1.790861 1.790861,-2.9914133E-08 3.9999998,8.97424E-08 z" Fill="{DynamicResource MediumBackgroundBrush}" Stretch="Fill" Stroke="Black" StrokeThickness="0" UseLayoutRounding="False" Width="28.99" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="0"/>
+		<Path x:Name="volumeBackground" Data="M3.9999998,8.97424E-08 C9.666667,-2.9914133E-08 24.989584,-2.9914133E-08 24.989584,8.97424E-08 L24.989599,0.0024942033 28.989,10 24.994833,19.984419 C24.994833,19.984419 9.666667,20 3.9999998,20 1.790861,20 0,18.209139 0,16 L0,4 C0,1.790861 1.790861,-2.9914133E-08 3.9999998,8.97424E-08 z" Fill="{DynamicResource MediumBackgroundBrush}" Stretch="Fill" Stroke="Black" StrokeThickness="0" UseLayoutRounding="False" Width="28.99" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="0"/>
 		<Path x:Name="volumeIcon" Data="M7.8119998,0 L7.8119998,12.436 4.2378607,8.7320001 0,8.7320001 0,3.7320001 4.2108422,3.7320001 z" Fill="{DynamicResource IconForegroundInactiveBrush}" Stretch="Fill" StrokeThickness="0" UseLayoutRounding="False" Width="7.812" Canvas.Left="9.088" Canvas.Top="3" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
 			<Path.RenderTransform>
 				<TransformGroup>
