@@ -23,32 +23,8 @@
 			<Canvas Height="18" Margin="0">
 				<VisualStateManager.VisualStateGroups>
 					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Normal">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="playIcon" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
-								</ObjectAnimationUsingKeyFrames>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause1" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
-								</ObjectAnimationUsingKeyFrames>								
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause2" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource IconForegroundInactiveBrush}" />
-								</ObjectAnimationUsingKeyFrames>															
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="MouseOver">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="playIcon" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
-								</ObjectAnimationUsingKeyFrames>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause1" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
-								</ObjectAnimationUsingKeyFrames>								
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetName="pause2" Storyboard.TargetProperty="Fill">
-									<DiscreteObjectKeyFrame KeyTime="0:0:0" Value="{DynamicResource SuperLightBackgroundBrush}" />
-								</ObjectAnimationUsingKeyFrames>															
-							</Storyboard>
-						</VisualState>
+						<VisualState x:Name="Normal"/>
+						<VisualState x:Name="MouseOver"/>
 						<VisualState x:Name="Pressed"/>
 						<VisualState x:Name="Disabled"/>
 					</VisualStateGroup>
@@ -82,7 +58,7 @@
 					</VisualStateGroup>
 				</VisualStateManager.VisualStateGroups>
 				<Path x:Name="playBackground" Data="M0,0 L21.010416,0 C23.219557,1.4901161E-07 25.010416,1.7908612 25.010416,3.9999999 L25.010416,16 C25.010416,18.209139 23.219557,20 21.010416,20 L0.0052051544,20 C0.0052051544,20 0.0052108765,19.998251 0.0052204132,19.994795 L0.0052490234,19.984419 3.9994164,10 1.5258789E-05,0.0024944544 z" Fill="{DynamicResource DarkBackgroundBrush}" Stretch="Fill" Stroke="Black" StrokeThickness="0" UseLayoutRounding="False" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="18" Canvas.Top="0"/>
-				<Path x:Name="playIcon" Data="M5.0000001,0 L10,7.6000003 L-2.0915641E-08,7.6000003 z" Fill="{DynamicResource IconForegroundInactiveBrush}" Height="7.6" Canvas.Left="9.661" Margin="0" RenderTransformOrigin="0.500000001045782,0.499999974903309" Stretch="Fill" StrokeThickness="0" Canvas.Top="6" UseLayoutRounding="False" Width="10" d:LayoutRounding="Auto" >
+				<Path x:Name="playIcon" Data="M5.0000001,0 L10,7.6000003 L-2.0915641E-08,7.6000003 z" Height="7.6" Canvas.Left="9.661" Margin="0" RenderTransformOrigin="0.500000001045782,0.499999974903309" Stretch="Fill" StrokeThickness="0" Canvas.Top="6" UseLayoutRounding="False" Width="10" d:LayoutRounding="Auto" Fill="{DynamicResource IconForegroundInactiveBrush}" >
 					<Path.RenderTransform>
 						<TransformGroup>
 							<ScaleTransform/>
@@ -92,8 +68,8 @@
 						</TransformGroup>
 					</Path.RenderTransform>
 				</Path>
-				<Rectangle x:Name="pause1" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="11" Canvas.Left="10" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0"/>
-				<Rectangle x:Name="pause2" Fill="{DynamicResource SuperLightBackgroundBrush}" Height="11" Canvas.Left="15" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0"/>
+				<Rectangle x:Name="pause1" Height="11" Canvas.Left="10" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0" Fill="{DynamicResource IconForegroundInactiveBrush}"/>
+				<Rectangle x:Name="pause2" Height="11" Canvas.Left="15" StrokeThickness="0" Canvas.Top="4" Width="3" Opacity="0" Fill="{DynamicResource IconForegroundInactiveBrush}"/>
 			</Canvas>
 		</ControlTemplate>
         </ResourceDictionary>

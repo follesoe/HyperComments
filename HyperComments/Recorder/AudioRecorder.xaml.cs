@@ -33,6 +33,7 @@ namespace HyperComments.Recorder
             _stopwatch = new Stopwatch();
 
             VisualStateManager.GoToState(this, CollapsedState, false);
+            VisualStateManager.GoToState(_record, RecordState, false);            
         }
 
         private void OnUpdateRecordingTime(object sender, EventArgs e)

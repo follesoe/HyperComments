@@ -38,6 +38,7 @@ namespace HyperComments.Player
 
 		    VisualStateManager.GoToState(this, HiddenState, false);
 		    VisualStateManager.GoToState(this, CollapsedState, false);
+	        VisualStateManager.GoToState(_playPause, PlayState, false);
 		}
 
         private void OnUpdatePosition(object sender, EventArgs e)
