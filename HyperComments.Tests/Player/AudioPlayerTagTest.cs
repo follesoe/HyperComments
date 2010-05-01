@@ -16,7 +16,7 @@ namespace HyperComments.Tests.Player
         [TestMethod]
         public void Sets_the_path_of_the_audio_file_on_the_player()
         {
-            Assert.AreEqual("comment.mp3", tag.Player.Filename);
+            Assert.AreEqual("comment.mp3", tag.PlayerView.ViewModel.Filename);
         }
 
         [TestInitialize]

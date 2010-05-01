@@ -18,7 +18,7 @@ namespace HyperComments.Recorder
             _soundCapture.WaveFormat = PcmSoundFormat.Pcm48kHz16bitStereo;
             _soundCapture.Mp3BitRate = Mp3BitRate.BitRate128;
             _soundCapture.Stopped += OnRecordingStopped;
-            _soundCapture.WaitOnStop = false;
+            _soundCapture.WaitOnStop = true;
         }
 
         public void Start(string filename)

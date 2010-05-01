@@ -1,21 +1,19 @@
-﻿using System.Windows;
-using Microsoft.VisualStudio.Text.Editor;
+﻿using Microsoft.VisualStudio.Text.Editor;
 
 namespace HyperComments.Player
 {
     public class AudioPlayerTag : IntraTextAdornmentTag
     {
-        public string Filename { get { return Player.Filename; } }
+        public string Filename { get { return PlayerView.ViewModel.Filename; } }
 
-        public AudioPlayer Player
+        public AudioPlayer PlayerView
         {
             get { return (AudioPlayer) Adornment; }
         }
 
         public AudioPlayerTag(string filename) : base(new AudioPlayer(), null)
         {
-            Player.Filename = filename;
-            Player.RenderSize = new Size(350, 18);
+            PlayerView.ViewModel.Filename = filename;
         }
     }
 }

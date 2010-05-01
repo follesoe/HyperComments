@@ -38,6 +38,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Istrib.Sound, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0b719abf5f715f2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\Istrib.Sound.dll</HintPath>
+    </Reference>
+    <Reference Include="Istrib.Sound.Mp3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0b719abf5f715f2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\Istrib.Sound.Mp3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\Microsoft.DirectX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\Microsoft.DirectX.DirectSound.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,6 +70,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="yeti.mmedia, Version=1.0.3743.18, Culture=neutral, PublicKeyToken=d0b719abf5f715f2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\yeti.mmedia.dll</HintPath>
+    </Reference>
+    <Reference Include="yeti.mp3, Version=1.0.3743.18, Culture=neutral, PublicKeyToken=d0b719abf5f715f2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\SoundCapture\yeti.mp3.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -102,6 +126,11 @@
       <Project>{3838CBC1-9A64-4BBE-959B-4B40040D5540}</Project>
       <Name>HyperComments</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lame_enc.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

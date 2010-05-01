@@ -26,7 +26,7 @@ namespace HyperComments.UITestSurface
             
             if(openFileDialog.ShowDialog(this).Value)
             {
-                _player.Filename = openFileDialog.FileName;
+                _player.ViewModel.Filename = openFileDialog.FileName;
             }
         }
 
@@ -41,7 +41,7 @@ namespace HyperComments.UITestSurface
 
         private void OnRecordingCompleted(object sender, RecordingCompleteEventArgs e)
         {
-            _player.Filename = e.Filename;
+            _player.ViewModel.Filename = e.Filename;
         }
     }
 }

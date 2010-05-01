@@ -9,7 +9,7 @@
 	x:Class="HyperComments.Player.AudioPlayer"
 	x:Name="UserControl"
 	UseLayoutRounding="True"
-	Width="350" Height="18">
+	Width="350" Height="18" Cursor="Arrow">
     <UserControl.DataContext>
         <local:AudioPlayerViewModel />
     </UserControl.DataContext>

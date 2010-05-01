@@ -16,12 +16,6 @@ namespace HyperComments.Player
 
         private readonly DispatcherTimer _timer;
 
-	    public string Filename
-	    {
-            get { return ViewModel.Filename; }
-            set { ViewModel.Filename = value; }
-	    }
-
 	    public AudioPlayerViewModel ViewModel
 	    {
 	        get { return (AudioPlayerViewModel) DataContext; }
