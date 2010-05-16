@@ -25,7 +25,11 @@
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="VisualStateGroup">
     			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:0.15"/>
+    				<VisualTransition GeneratedDuration="0:0:0.15">
+    					<VisualTransition.GeneratedEasingFunction>
+    						<QuinticEase EasingMode="EaseInOut"/>
+    					</VisualTransition.GeneratedEasingFunction>
+    				</VisualTransition>
     			</VisualStateGroup.Transitions>
     			<VisualState x:Name="Collapsed">
     				<Storyboard>
