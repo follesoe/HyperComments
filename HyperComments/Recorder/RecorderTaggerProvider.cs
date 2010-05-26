@@ -10,8 +10,8 @@ namespace HyperComments.Recorder
 {
     [Export(typeof(ITaggerProvider))]
     [ContentType("code")]
-    [TagType(typeof(AudioRecorderTag))]
-    public class AudioRecorderTaggerProvider : ITaggerProvider
+    [TagType(typeof(RecorderTag))]
+    public class RecorderTaggerProvider : ITaggerProvider
     {
         [Import]
         internal IClassifierAggregatorService AggregatorService;
@@ -23,7 +23,7 @@ namespace HyperComments.Recorder
         {
             if (buffer == null) throw new ArgumentException("buffer");
 
-            return new AudioRecorderTagger(ServiceProvider, buffer, AggregatorService.GetClassifier(buffer)) as ITagger<T>;
+            return new RecorderTagger(ServiceProvider, buffer, AggregatorService.GetClassifier(buffer)) as ITagger<T>;
         }
     }
 }

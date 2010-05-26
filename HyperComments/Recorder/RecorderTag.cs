@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.Text.Editor;
 
 namespace HyperComments.Recorder
 {
-    public class AudioRecorderTag : IntraTextAdornmentTag
+    public class RecorderTag : IntraTextAdornmentTag
     {
         private readonly ITextBuffer _textBuffer;
         private readonly SnapshotSpan _span;
@@ -14,7 +14,7 @@ namespace HyperComments.Recorder
             get { return (AudioRecorder) Adornment; }
         }
 
-        public AudioRecorderTag(ITextBuffer textBuffer, SnapshotSpan span, string recordingDirectory, string activeDoctument) : base(new AudioRecorder(), null)
+        public RecorderTag(ITextBuffer textBuffer, SnapshotSpan span, string recordingDirectory, string activeDoctument) : base(new AudioRecorder(), null)
         {
             _span = span;
             _textBuffer = textBuffer;

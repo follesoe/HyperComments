@@ -14,7 +14,7 @@ using Microsoft.VisualStudio.Text;
 namespace HyperComments.Tests.Recorder
 {
     [TestClass]
-    public class AudioRecorderTaggerTest : TaggerTest<AudioRecorderTaggerTest, AudioRecorderTag>
+    public class AudioRecorderTaggerTest : TaggerTest<AudioRecorderTaggerTest, RecorderTag>
     {
         [TestMethod]
         public void Creates_tag_if_audio_file_comment_is_found()
@@ -32,7 +32,7 @@ namespace HyperComments.Tests.Recorder
             Given.user_is_editing_some_file();
             When.we_get_the_tags();
 
-            var tagSpan = (TagSpan<AudioRecorderTag>)tags.First();
+            var tagSpan = (TagSpan<RecorderTag>)tags.First();
 
             Assert.AreEqual("some_file.cs", tagSpan.Tag.RecorderView.ViewModel.ActiveDocument);
         }
@@ -43,7 +43,7 @@ namespace HyperComments.Tests.Recorder
             Given.user_is_editing_some_file();
             When.we_get_the_tags();
 
-            var tagSpan = (TagSpan<AudioRecorderTag>)tags.First();
+            var tagSpan = (TagSpan<RecorderTag>)tags.First();
 
             Assert.AreEqual(@"c:\source\my_project\Audio Comments", 
                             tagSpan.Tag.RecorderView.ViewModel.RecordingDirectory);
@@ -64,7 +64,7 @@ namespace HyperComments.Tests.Recorder
             textBuffer = new Mock<ITextBuffer>();
             serviceProvider = new Mock<SVsServiceProvider>();
             fileAccess = new Mock<IAccessFiles>();
-            tagger = new AudioRecorderTagger(serviceProvider.Object, textBuffer.Object, classifier.Object);
+            tagger = new RecorderTagger(serviceProvider.Object, textBuffer.Object, classifier.Object);
         }
 
         private Mock<IAccessFiles> fileAccess;
@@ -99,7 +99,7 @@ namespace HyperComments.Tests.Recorder
             fileAccess.Setup(f => 
                 f.CreateDirectory(It.Is<string>(s => s == @"c:\source\my_project\Audio Comments"))).Verifiable();
 
-            tagger = new AudioRecorderTagger(fileAccess.Object, serviceProvider.Object, textBuffer.Object, classifier.Object);
+            tagger = new RecorderTagger(fileAccess.Object, serviceProvider.Object, textBuffer.Object, classifier.Object);
         }
     }
 }

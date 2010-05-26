@@ -11,28 +11,28 @@ using Microsoft.VisualStudio.Text.Classification;
 
 namespace HyperComments.Recorder
 {
-    public class AudioRecorderTagger : RegexTagger<AudioRecorderTag>
+    public class RecorderTagger : RegexTagger<RecorderTag>
     {
         private readonly ITextBuffer _buffer;
         private readonly SVsServiceProvider _serviceProvider;
         private readonly IAccessFiles _fileAccess;
         
-        public AudioRecorderTagger(SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : 
+        public RecorderTagger(SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : 
             this(new FileSystemAdapter(), serviceProvider, buffer, classifier)
         {            
         }
 
 
-        public AudioRecorderTagger(IAccessFiles fileAccess, SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : base(classifier, "// {recorder}")
+        public RecorderTagger(IAccessFiles fileAccess, SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : base(classifier, "// {recorder}")
         {
             _buffer = buffer;
             _serviceProvider = serviceProvider;
             _fileAccess = fileAccess;
         }
 
-        public override AudioRecorderTag CreateTag(Match regexMatch, SnapshotSpan span)
+        public override RecorderTag CreateTag(Match regexMatch, SnapshotSpan span)
         {
-            return new AudioRecorderTag(_buffer, span, GetRecordingDirectory(), GetActiveDocument());
+            return new RecorderTag(_buffer, span, GetRecordingDirectory(), GetActiveDocument());
         }
 
         private string GetRecordingDirectory()

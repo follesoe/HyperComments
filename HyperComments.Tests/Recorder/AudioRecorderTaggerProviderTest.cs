@@ -20,17 +20,17 @@ namespace HyperComments.Tests.Recorder
         [ExpectedException(typeof(ArgumentException))]
         public void Throws_exception_if_buffer_is_null()
         {
-            provider.CreateTagger<AudioRecorderTag>(null);
+            provider.CreateTagger<RecorderTag>(null);
         }
 
         [TestMethod]
         public void Creates_the_AudioRecorderTagger()
         {
             var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<AudioRecorderTag>(buffer);
+            var tagger = provider.CreateTagger<RecorderTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(AudioRecorderTagger));
+            Assert.IsInstanceOfType(tagger, typeof(RecorderTagger));
         }
 
         [TestInitialize]
@@ -43,7 +43,7 @@ namespace HyperComments.Tests.Recorder
             AggregatorService = aggregatorService.Object;
             ServiceProvider = new Mock<SVsServiceProvider>().Object;
 
-            provider = new AudioRecorderTaggerProvider();
+            provider = new RecorderTaggerProvider();
 
             var batch = new CompositionBatch();
             batch.AddPart(this);
@@ -60,6 +60,6 @@ namespace HyperComments.Tests.Recorder
         [Export]
         public SVsServiceProvider ServiceProvider;
 
-        private AudioRecorderTaggerProvider provider;
+        private RecorderTaggerProvider provider;
     }
 }

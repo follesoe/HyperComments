@@ -38,7 +38,7 @@ namespace HyperComments.Tests.Recorder
                       .Returns(new Mock<ITextSnapshot>().Object).AtMostOnce()
                       .Verifiable("Expects the tag to replace {recorder} with {audio: ...}");
 
-            tag = new AudioRecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);
+            tag = new RecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);
             tag.RecorderView.ViewModel.RecordingCommand.AudioRecorder = new AudioRecorderStub();
 
             tag.RecorderView.ViewModel.RecordingCommand.Execute(null);
@@ -55,12 +55,12 @@ namespace HyperComments.Tests.Recorder
 
             activeDocument = "myfile.cs";
             recordingDirectory = @"c:\recordings";
-            tag = new AudioRecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);            
+            tag = new RecorderTag(textBuffer.Object, span, recordingDirectory, activeDocument);            
         }
 
         private string recordingDirectory;
         private string activeDocument;        
-        private AudioRecorderTag tag;
+        private RecorderTag tag;
         private Mock<ITextBuffer> textBuffer;
         private SnapshotSpan span;
     }
