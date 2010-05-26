@@ -5,22 +5,22 @@ using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Text.Tagging;
 using Microsoft.VisualStudio.Utilities;
 
-namespace HyperComments.Recorder
+namespace HyperComments.Player
 {
     [Export(typeof(IViewTaggerProvider))]
     [ContentType("code")]
     [TagType(typeof(IntraTextAdornmentTag))]
-    public class RecorderAdornmentTaggerProvider : IViewTaggerProvider
+    public class PlayerAdornmentTaggerProvider : IViewTaggerProvider
     {
         [Import]
         internal IBufferTagAggregatorFactoryService BufferTagAggregatorFactoryService;
 
         public ITagger<T> CreateTagger<T>(ITextView textView, ITextBuffer buffer) where T : ITag
         {
-            return RecorderAdornmentTagger.GetTagger(
+            return PlayerAdornmentTagger.GetTagger(
                 (IWpfTextView)textView,
-                new Lazy<ITagAggregator<RecorderTag>>(
-                    () => BufferTagAggregatorFactoryService.CreateTagAggregator<RecorderTag>(textView.TextBuffer))) as ITagger<T>;            
+                new Lazy<ITagAggregator<PlayerTag>>(
+                        () => BufferTagAggregatorFactoryService.CreateTagAggregator<PlayerTag>(textView.TextBuffer))) as ITagger<T>;
         }
     }
 }

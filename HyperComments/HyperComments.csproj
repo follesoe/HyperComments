@@ -99,6 +99,7 @@
       <DependentUpon>AudioPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player\PlayerAdornmentTagger.cs" />
+    <Compile Include="Player\PlayerAdornmentTaggerProvider.cs" />
     <Compile Include="Player\PlayerTag.cs" />
     <Compile Include="Player\PlayerTagger.cs" />
     <Compile Include="Player\PlayerTaggerProvider.cs" />
