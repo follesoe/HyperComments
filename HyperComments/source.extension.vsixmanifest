@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
   <Identifier Id="HyperComments.Microsoft.57f149dc-f9c3-40c5-83af-a1a311d15b31">
     <Name>HyperComments</Name>
-    <Author>Microsoft</Author>
-    <Version>1.0</Version>
-    <Description xml:space="preserve">This is a sample text-relative adornment extension to the Visual Studio Editor.</Description>
+    <Author>Jonas Follesø</Author>
+    <Version>0.1</Version>
+    <Description xml:space="preserve">HyperComments is an extension to Visual Studio 2010 that enables you to add multimedia annotations to your source code. The current build only supports audio files. You can record new audio comments directly from the code editor in Visual Studio 2010.</Description>
     <Locale>1033</Locale>
+    <MoreInfoUrl>http://wiki.github.com/follesoe/HyperComments/</MoreInfoUrl>
+    <License>Licence.txt</License>
+    <GettingStartedGuide>http://wiki.github.com/follesoe/HyperComments/</GettingStartedGuide>
+    <PreviewImage>PreviewImage.PNG</PreviewImage>
     <SupportedProducts>
       <VisualStudio Version="10.0">
         <Edition>Pro</Edition>
@@ -14,7 +18,6 @@
     <SupportedFrameworkRuntimeEdition MinVersion="4.0" MaxVersion="4.0" />
   </Identifier>
   <References />
-
   <Content>
     <MefComponent>|%CurrentProject%|</MefComponent>
   </Content>
