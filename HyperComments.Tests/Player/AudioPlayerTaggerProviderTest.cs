@@ -19,16 +19,6 @@ namespace HyperComments.Tests.Player
             provider.CreateTagger<PlayerTag>(null);
         }
 
-        [TestMethod]
-        public void Creates_the_AudioPlayerTagger()
-        {
-            var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<PlayerTag>(buffer);
-
-            Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(PlayerTagger));
-        }
-
         [TestInitialize]
         public void Setup()
         {

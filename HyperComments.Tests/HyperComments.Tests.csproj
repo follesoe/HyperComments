@@ -65,14 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Player\AudioPlayerTaggerProviderTest.cs" />
-    <Compile Include="Player\AudioPlayerTaggerTest.cs" />
     <Compile Include="Player\AudioPlayerViewModelTest.cs" />
     <Compile Include="Recorder\AudioRecorderTaggerProviderTest.cs" />
     <Compile Include="Recorder\AudioRecorderTaggerTest.cs" />
     <Compile Include="BDD.cs" />
     <Compile Include="Builders\ClassificationSpanBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recorder\AudioRecorderTagTest.cs" />
     <Compile Include="Recorder\AudioRecorderViewModelTest.cs" />
     <Compile Include="Recorder\RecordingCommandTest.cs" />
     <Compile Include="Stubs\AudioRecorderStub.cs" />
@@ -80,7 +78,6 @@
     <Compile Include="Stubs\DTE2Stub.cs" />
     <Compile Include="Stubs\Solution2Stub.cs" />
     <Compile Include="Stubs\TestTag.cs" />
-    <Compile Include="TaggerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HyperComments\HyperComments.csproj">

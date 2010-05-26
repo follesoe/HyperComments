@@ -23,16 +23,6 @@ namespace HyperComments.Tests.Recorder
             provider.CreateTagger<RecorderTag>(null);
         }
 
-        [TestMethod]
-        public void Creates_the_AudioRecorderTagger()
-        {
-            var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<RecorderTag>(buffer);
-
-            Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(RcorderTagger));
-        }
-
         [TestInitialize]
         public void Setup()
         {
