@@ -11,8 +11,8 @@ namespace HyperComments.Player
 {
     [Export(typeof(ITaggerProvider))]
     [ContentType("code")]
-    [TagType(typeof(AudioPlayerTag))]
-    public class AudioPlayerTaggerProvider : ITaggerProvider
+    [TagType(typeof(PlayerTag))]
+    public class PlayerTaggerProvider : ITaggerProvider
     {
         [Import]
         internal IClassifierAggregatorService AggregatorService;
@@ -21,7 +21,7 @@ namespace HyperComments.Player
         {
             if(buffer == null) throw new ArgumentException("buffer");
 
-            return new AudioPlayerTaggerJonas(AggregatorService.GetClassifier(buffer)) as ITagger<T>;
+            return buffer.Properties.GetOrCreateSingletonProperty(() => new PlayerTagger(buffer)) as ITagger<T>;
         }
     }
 }

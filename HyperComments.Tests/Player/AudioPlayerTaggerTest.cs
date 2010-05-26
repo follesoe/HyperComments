@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace HyperComments.Tests.Player
 {
     [TestClass]
-    public class AudioPlayerTaggerTest : TaggerTest<AudioPlayerTaggerTest, AudioPlayerTag>
+    public class AudioPlayerTaggerTest : TaggerTest<AudioPlayerTaggerTest, PlayerTag>
     {
         [TestMethod]
         public void Creates_tag_if_audio_file_comment_is_found()
@@ -27,8 +27,8 @@ namespace HyperComments.Tests.Player
 
         [TestInitialize]
         public void Setup()
-        {         
-            tagger = new AudioPlayerTaggerJonas(classifier.Object);
+        {
+            tagger = new PlayerTagger(buffer.Object);
         }
 
         private void we_have_one_span_matching_audio_comment()

@@ -16,17 +16,17 @@ namespace HyperComments.Tests.Player
         [ExpectedException(typeof(ArgumentException))]
         public void Throws_exception_if_buffer_is_null()
         {
-            provider.CreateTagger<AudioPlayerTag>(null);
+            provider.CreateTagger<PlayerTag>(null);
         }
 
         [TestMethod]
         public void Creates_the_AudioPlayerTagger()
         {
             var buffer = new Mock<ITextBuffer>().Object;
-            var tagger = provider.CreateTagger<AudioPlayerTag>(buffer);
+            var tagger = provider.CreateTagger<PlayerTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(AudioPlayerTaggerJonas));
+            Assert.IsInstanceOfType(tagger, typeof(PlayerTagger));
         }
 
         [TestInitialize]
@@ -38,7 +38,7 @@ namespace HyperComments.Tests.Player
 
             AggregatorService = aggregatorService.Object;
 
-            provider = new AudioPlayerTaggerProvider();                                 
+            provider = new PlayerTaggerProvider();                                 
 
             var batch = new CompositionBatch();
             batch.AddPart(this);
@@ -52,6 +52,6 @@ namespace HyperComments.Tests.Player
         [Export]
         public IClassifierAggregatorService AggregatorService;
 
-        private AudioPlayerTaggerProvider provider;
+        private PlayerTaggerProvider provider;
     }
 }

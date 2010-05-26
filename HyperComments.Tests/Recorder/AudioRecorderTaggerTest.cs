@@ -64,7 +64,7 @@ namespace HyperComments.Tests.Recorder
             textBuffer = new Mock<ITextBuffer>();
             serviceProvider = new Mock<SVsServiceProvider>();
             fileAccess = new Mock<IAccessFiles>();
-            tagger = new RcorderTagger(serviceProvider.Object, textBuffer.Object, classifier.Object);
+            tagger = new RcorderTagger(serviceProvider.Object, textBuffer.Object);
         }
 
         private Mock<IAccessFiles> fileAccess;
@@ -99,7 +99,7 @@ namespace HyperComments.Tests.Recorder
             fileAccess.Setup(f => 
                 f.CreateDirectory(It.Is<string>(s => s == @"c:\source\my_project\Audio Comments"))).Verifiable();
 
-            tagger = new RcorderTagger(fileAccess.Object, serviceProvider.Object, textBuffer.Object, classifier.Object);
+            tagger = new RcorderTagger(fileAccess.Object, serviceProvider.Object, textBuffer.Object);
         }
     }
 }

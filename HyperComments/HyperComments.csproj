@@ -98,9 +98,9 @@
     <Compile Include="Player\AudioPlayer.xaml.cs">
       <DependentUpon>AudioPlayer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player\AudioPlayerTag.cs" />
-    <Compile Include="Player\AudioPlayerTagger.cs" />
-    <Compile Include="Player\AudioPlayerTaggerProvider.cs" />
+    <Compile Include="Player\PlayerTag.cs" />
+    <Compile Include="Player\PlayerTagger.cs" />
+    <Compile Include="Player\PlayerTaggerProvider.cs" />
     <Compile Include="Player\AudioPlayerViewModel.cs" />
     <Compile Include="Recorder\AudioRecorder.xaml.cs">
       <DependentUpon>AudioRecorder.xaml</DependentUpon>

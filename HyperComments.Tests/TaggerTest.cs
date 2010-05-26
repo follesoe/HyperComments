@@ -30,6 +30,7 @@ namespace HyperComments.Tests
             spans = new NormalizedSnapshotSpanCollection();
             classificationSpans = new List<ClassificationSpan>();
 
+            buffer = new Mock<ITextBuffer>();
             classifier = new Mock<IClassifier>();
             classifier.Setup(c => c.GetClassificationSpans(It.IsAny<SnapshotSpan>())).Returns(classificationSpans);
         }
@@ -38,6 +39,7 @@ namespace HyperComments.Tests
         protected ITagger<TTag> tagger;
         protected NormalizedSnapshotSpanCollection spans;
         protected Mock<IClassifier> classifier;
+        protected Mock<ITextBuffer> buffer;
         protected List<ClassificationSpan> classificationSpans;
     }
 }
