@@ -106,6 +106,7 @@
       <DependentUpon>AudioRecorder.xaml</DependentUpon>
     </Compile>
     <Compile Include="Recorder\RecorderAdornmentTagger.cs" />
+    <Compile Include="Recorder\RecorderAdornmentTaggerProvider.cs" />
     <Compile Include="Recorder\RecorderTag.cs" />
     <Compile Include="Recorder\RecorderTagger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
