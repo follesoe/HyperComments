@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using System.Windows;
 using System.Windows.Input;
 
 namespace HyperComments.Recorder
@@ -28,17 +29,24 @@ namespace HyperComments.Recorder
 
         public void Execute(object parameter)
         {
-            if(_isRecording)
+            try
             {
-                _isRecording = false;
-                AudioRecorder.Stop(_recordingCompletedCallback);
+                if (_isRecording)
+                {
+                    _isRecording = false;
+                    AudioRecorder.Stop(_recordingCompletedCallback);
+                }
+                else
+                {
+                    _isRecording = true;
+                    _filename = GetRecordingFilename();
+                    AudioRecorder.Start(_filename);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                _isRecording = true;
-                _filename = GetRecordingFilename();
-                AudioRecorder.Start(_filename);    
-            }            
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private string GetRecordingFilename()
