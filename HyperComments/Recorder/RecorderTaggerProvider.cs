@@ -25,7 +25,7 @@ namespace HyperComments.Recorder
 
 
             return buffer.Properties.GetOrCreateSingletonProperty(
-                () => new RcorderTagger(ServiceProvider, buffer, AggregatorService.GetClassifier(buffer))) as ITagger<T>;
+                () => new RcorderTagger(ServiceProvider, buffer)) as ITagger<T>;
         }
     }
 }

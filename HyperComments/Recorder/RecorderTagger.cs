@@ -6,27 +6,23 @@ using EnvDTE80;
 
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Text.Classification;
-
 
 namespace HyperComments.Recorder
 {
     public class RcorderTagger : RegexTagger<RecorderTag>
     {
-        private readonly ITextBuffer _buffer;
         private readonly SVsServiceProvider _serviceProvider;
         private readonly IAccessFiles _fileAccess;
         
-        public RcorderTagger(SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : 
-            this(new FileSystemAdapter(), serviceProvider, buffer, classifier)
+        public RcorderTagger(SVsServiceProvider serviceProvider, ITextBuffer buffer) : 
+            this(new FileSystemAdapter(), serviceProvider, buffer)
         {            
         }
 
 
-        public RcorderTagger(IAccessFiles fileAccess, SVsServiceProvider serviceProvider, ITextBuffer buffer, IClassifier classifier) : 
+        public RcorderTagger(IAccessFiles fileAccess, SVsServiceProvider serviceProvider, ITextBuffer buffer) : 
             base(buffer, new[] { new Regex("// {recorder}", RegexOptions.Compiled |  RegexOptions.IgnoreCase) })
         {
-            _buffer = buffer;
             _serviceProvider = serviceProvider;
             _fileAccess = fileAccess;
         }

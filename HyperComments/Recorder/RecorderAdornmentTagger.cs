@@ -19,7 +19,10 @@ namespace HyperComments.Recorder
 
         protected override AudioRecorder CreateAdornment(RecorderTag data, SnapshotSpan span)
         {
-            return new AudioRecorder();
+            var recorder = new AudioRecorder();
+            recorder.ViewModel.ActiveDocument = data.ActiveDocument;
+            recorder.ViewModel.RecordingDirectory = data.RecordingDirectory;
+            return recorder;
         }
 
         protected override bool UpdateAdornment(AudioRecorder adornment, RecorderTag data)
