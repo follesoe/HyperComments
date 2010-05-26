@@ -28,7 +28,7 @@ namespace HyperComments.Tests.Player
         [TestInitialize]
         public void Setup()
         {         
-            tagger = new AudioPlayerTagger(classifier.Object);
+            tagger = new AudioPlayerTaggerJonas(classifier.Object);
         }
 
         private void we_have_one_span_matching_audio_comment()

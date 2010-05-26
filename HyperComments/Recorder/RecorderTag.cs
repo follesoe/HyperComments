@@ -1,20 +1,30 @@
 ﻿using System.Windows;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Editor;
+using Microsoft.VisualStudio.Text.Tagging;
 
 namespace HyperComments.Recorder
 {
-    public class RecorderTag : IntraTextAdornmentTag
+    public class RecorderTag : ITag
     {
         private readonly ITextBuffer _textBuffer;
         private readonly SnapshotSpan _span;
 
         public AudioRecorder RecorderView
         {
-            get { return (AudioRecorder) Adornment; }
+            get { return null; }
         }
 
-        public RecorderTag(ITextBuffer textBuffer, SnapshotSpan span, string recordingDirectory, string activeDoctument) : base(new AudioRecorder(), null)
+        public string RecordingDirectory { get; private set; }
+        public string ActiveDocument { get; private set; }
+        
+        public RecorderTag(string recordingDirectory, string activeDoctument)
+        {
+            RecordingDirectory = recordingDirectory;
+            ActiveDocument = activeDoctument;
+        }
+
+        public RecorderTag(ITextBuffer textBuffer, SnapshotSpan span, string recordingDirectory, string activeDoctument)
         {
             _span = span;
             _textBuffer = textBuffer;

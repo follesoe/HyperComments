@@ -30,7 +30,7 @@ namespace HyperComments.Tests.Recorder
             var tagger = provider.CreateTagger<RecorderTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(RecorderTagger));
+            Assert.IsInstanceOfType(tagger, typeof(RcorderTagger));
         }
 
         [TestInitialize]

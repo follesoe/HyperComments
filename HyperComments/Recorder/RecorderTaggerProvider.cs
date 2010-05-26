@@ -23,7 +23,9 @@ namespace HyperComments.Recorder
         {
             if (buffer == null) throw new ArgumentException("buffer");
 
-            return new RecorderTagger(ServiceProvider, buffer, AggregatorService.GetClassifier(buffer)) as ITagger<T>;
+
+            return buffer.Properties.GetOrCreateSingletonProperty(
+                () => new RcorderTagger(ServiceProvider, buffer, AggregatorService.GetClassifier(buffer))) as ITagger<T>;
         }
     }
 }

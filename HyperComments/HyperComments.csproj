@@ -117,6 +117,7 @@
     <Compile Include="Recorder\RecordingCommand.cs" />
     <Compile Include="Recorder\RecordingCompleteEventArgs.cs" />
     <Compile Include="RegexTagger.cs" />
+    <Compile Include="RegexTaggerJonas.cs" />
     <Compile Include="SystemTime.cs" />
   </ItemGroup>
   <ItemGroup>

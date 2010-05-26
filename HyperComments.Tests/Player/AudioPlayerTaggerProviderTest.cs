@@ -26,7 +26,7 @@ namespace HyperComments.Tests.Player
             var tagger = provider.CreateTagger<AudioPlayerTag>(buffer);
 
             Assert.IsNotNull(tagger);
-            Assert.IsInstanceOfType(tagger, typeof(AudioPlayerTagger));
+            Assert.IsInstanceOfType(tagger, typeof(AudioPlayerTaggerJonas));
         }
 
         [TestInitialize]

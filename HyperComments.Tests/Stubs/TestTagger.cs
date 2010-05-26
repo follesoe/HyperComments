@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace HyperComments.Tests.Stubs
 {
-    public class TestTagger : RegexTagger<TestTag>
+    public class TestTaggerJonas : RegexTaggerJonas<TestTag>
     {
-        public TestTagger(IClassifier classifier, string regex) : base(classifier, regex)
+        public TestTaggerJonas(IClassifier classifier, string regex) : base(classifier, regex)
         {
             
         }

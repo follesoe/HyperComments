@@ -4,9 +4,9 @@ using Microsoft.VisualStudio.Text.Classification;
 
 namespace HyperComments.Player
 {
-    public class AudioPlayerTagger : RegexTagger<AudioPlayerTag>
+    public class AudioPlayerTaggerJonas : RegexTaggerJonas<AudioPlayerTag>
     {
-        public AudioPlayerTagger(IClassifier classifier) : base(classifier, "// {audio: (.*)}")
+        public AudioPlayerTaggerJonas(IClassifier classifier) : base(classifier, "// {audio: (.*)}")
         {
             
         }

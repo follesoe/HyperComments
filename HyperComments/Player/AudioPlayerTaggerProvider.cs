@@ -21,7 +21,7 @@ namespace HyperComments.Player
         {
             if(buffer == null) throw new ArgumentException("buffer");
 
-            return new AudioPlayerTagger(AggregatorService.GetClassifier(buffer)) as ITagger<T>;
+            return new AudioPlayerTaggerJonas(AggregatorService.GetClassifier(buffer)) as ITagger<T>;
         }
     }
 }

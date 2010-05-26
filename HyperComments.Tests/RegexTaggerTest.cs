@@ -60,7 +60,7 @@ namespace HyperComments.Tests
         [TestInitialize]
         public void Setup()
         {                    
-            tagger = new TestTagger(classifier.Object, Regex);
+            tagger = new TestTaggerJonas(classifier.Object, Regex);
         }
 
         private const string Regex = "test";
